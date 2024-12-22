@@ -1,3 +1,4 @@
+import base64
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.views import View
@@ -21,15 +22,27 @@ if not RECEIVING_APP_TOKEN:
     raise ValueError("RECEIVING_APP_TOKEN is not set in the environment variables.")
 
 # Retry function for sending requests
-@retry(stop=stop_after_attempt(3), wait=wait_fixed(2))  # Retry up to 3 times with a 2-second interval
+@retry(stop=stop_after_attempt(3), wait=wait_fixed(2))
 def send_request(url, data, headers):
     try:
-        response = requests.post(url, data=data, headers=headers, timeout=5)
-        response.raise_for_status()  # Raise HTTPError for bad responses (4xx, 5xx)
+        # Log the final payload and headers being sent
+        logger.debug(f"Final payload sent to Receiving Application: {data}")
+        logger.debug(f"Headers: {headers}")
+        
+        logger.info(f"Sending request to {url}")
+        
+        # Send the POST request
+        response = requests.post(url, json=data, headers=headers, timeout=5)
+        response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
         return response
+    except requests.exceptions.HTTPError as e:
+        logger.error(f"HTTPError: {e.response.status_code} - {e.response.text}")
+        raise  # Rethrow the exception to trigger retry
     except requests.exceptions.RequestException as e:
-        logger.error(f"Error during request: {str(e)}")
-        raise  # Rethrow exception to trigger retry
+        logger.error(f"Request failed: {e}")
+        raise
+
+
 
 # Views
 class HomeView(View):
@@ -77,39 +90,36 @@ class LoginView(View):
 @method_decorator(login_required, name='dispatch')
 class SendMessageView(View):
     def get(self, request):
-        # Render the form without sending any message
         return render(request, 'sending_application/send_message.html', {'success': False, 'error': None})
 
     def post(self, request):
-        # File validation
         attachment = request.FILES.get('attachment')
         if attachment:
             if attachment.size > 5 * 1024 * 1024:  # 5 MB limit
                 return render(request, 'sending_application/send_message.html', {
                     'success': False,
-                    'error': 'File size must be less than 5MB.'
+                    'error': 'File size must be less than 5MB.',
                 })
             if not attachment.content_type in ['image/jpeg', 'image/png', 'application/pdf']:
                 return render(request, 'sending_application/send_message.html', {
                     'success': False,
-                    'error': 'Only JPG, PNG, and PDF files are allowed.'
+                    'error': 'Only JPG, PNG, and PDF files are allowed.',
                 })
 
         recipient_username = request.POST.get('recipient')
         encrypted_content = request.POST.get('content')
         content_hash = request.POST.get('hash')
+        encryption_method = request.POST.get('encryption_method')
         priority = request.POST.get('priority', 'normal')
 
-        # Validate required fields
-        if not recipient_username or not encrypted_content or not content_hash:
-            logger.error("Missing required fields: recipient, content, or hash")
+        if not recipient_username or not encrypted_content or not content_hash or not encryption_method:
+            logger.error("Missing required fields: recipient, content, hash, or encryption method")
             return render(request, 'sending_application/send_message.html', {
                 'success': False,
-                'error': 'Recipient, message content, and hash are required.',
+                'error': 'All fields are required: recipient, content, hash, and encryption method.',
             })
 
         try:
-            # Validate the recipient exists
             recipient = User.objects.get(username=recipient_username)
         except User.DoesNotExist:
             logger.error(f"Recipient does not exist: {recipient_username}")
@@ -118,29 +128,30 @@ class SendMessageView(View):
                 'error': 'The recipient does not exist.',
             })
 
+        attachment_data = None
+        if attachment:
+            attachment_data = base64.b64encode(attachment.read()).decode('utf-8')
+
         payload = {
-            'recipient_id': recipient.id,
+            'recipient_id': recipient.username,  # Use recipient.id if needed
+            'sender': request.user.username,
             'content': encrypted_content,
             'hash': content_hash,
+            'encryption_method': encryption_method,
             'priority': priority,
-            'sender_id': request.user.id,
+            'attachment': attachment_data,  # Optional attachment
         }
+        logger.debug(f"Payload sent to Receiving Application: {payload}")
 
         try:
-            # Log payload without exposing sensitive content
-            logger.info(f"Attempting to send message to {recipient_username} (ID: {recipient.id}) with priority '{priority}'.")
-
             response = send_request(
                 RECEIVING_PROJECT_BASE_URL,
                 payload,
-                {
-                    'Authorization': f'Token {RECEIVING_APP_TOKEN}',
-                }
+                {'Authorization': f'Token {RECEIVING_APP_TOKEN}'},
             )
 
             if response.status_code == 200:
                 logger.info(f"Message sent successfully to {recipient_username}.")
-                # Redirect to avoid resubmission
                 return redirect('send-message')
             elif response.status_code == 401:
                 logger.error("Unauthorized access: Invalid token.")
@@ -161,4 +172,3 @@ class SendMessageView(View):
                 'success': False,
                 'error': 'An error occurred while sending the message. Please try again later.',
             })
-

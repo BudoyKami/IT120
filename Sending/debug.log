@@ -4948,3 +4948,1742 @@ DEBUG 2024-12-21 18:44:31,201 autoreload File C:\Users\USER\AppData\Local\Progra
 DEBUG 2024-12-21 18:44:48,321 autoreload File D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\IT120\sending_project\settings.py previous mtime: 1734774214.9717195, current mtime: 1734777887.8126767
 DEBUG 2024-12-21 18:44:48,321 autoreload D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\IT120\sending_project\settings.py notified as changed. Signal results: [(<function template_changed at 0x00000246EEADD580>, None), (<function translation_file_changed at 0x00000246EFA49300>, None)].
 INFO 2024-12-21 18:44:48,322 autoreload D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\IT120\sending_project\settings.py changed, reloading.
+INFO 2024-12-22 11:52:23,452 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 11:52:31,678 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 11:52:35,265 middleware Original Content: dsasdasd
+DEBUG 2024-12-22 11:52:35,266 middleware Encrypted Content: i2fa3ex3FDPuCT7yAg33+bbPHGQbDr+DiGXMPQndb8+Kotfghp9tuw==
+DEBUG 2024-12-22 11:52:35,266 middleware Generated Hash: 718ddf19a41012b434b58478d2950af0b5365b5bf7d2772e56b70f67fce87262
+DEBUG 2024-12-22 11:52:35,267 middleware Encryption Method: blake2
+DEBUG 2024-12-22 11:52:35,270 views Payload sent to Receiving Application: {'recipient_id': 1, 'content': 'i2fa3ex3FDPuCT7yAg33+bbPHGQbDr+DiGXMPQndb8+Kotfghp9tuw==', 'priority': 'normal', 'sender_id': 4}
+INFO 2024-12-22 11:52:35,271 views Attempting to send message to Caeilanlightwood (ID: 1) with priority 'normal'.
+DEBUG 2024-12-22 11:52:35,271 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'i2fa3ex3FDPuCT7yAg33+bbPHGQbDr+DiGXMPQndb8+Kotfghp9tuw==', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 11:52:35,272 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 11:52:35,273 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 11:52:35,294 views HTTPError: 400 - {"error": "Missing required fields: 'content', 'hash', or 'encryption_method'."}
+DEBUG 2024-12-22 11:52:37,298 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'i2fa3ex3FDPuCT7yAg33+bbPHGQbDr+DiGXMPQndb8+Kotfghp9tuw==', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 11:52:37,300 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 11:52:37,301 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 11:52:37,318 views HTTPError: 400 - {"error": "Missing required fields: 'content', 'hash', or 'encryption_method'."}
+DEBUG 2024-12-22 11:52:39,320 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'i2fa3ex3FDPuCT7yAg33+bbPHGQbDr+DiGXMPQndb8+Kotfghp9tuw==', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 11:52:39,322 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 11:52:39,323 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 11:52:39,343 views HTTPError: 400 - {"error": "Missing required fields: 'content', 'hash', or 'encryption_method'."}
+ERROR 2024-12-22 11:52:39,442 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 35, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 145, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+    ...<3 lines>...
+        }
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x231b6377ed0 state=finished raised HTTPError>]
+ERROR 2024-12-22 11:52:39,448 basehttp "POST /send-message/ HTTP/1.1" 500 129442
+INFO 2024-12-22 11:54:46,009 autoreload D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\middleware.py changed, reloading.
+INFO 2024-12-22 11:54:46,853 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 11:56:43,140 autoreload D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py changed, reloading.
+INFO 2024-12-22 11:56:43,892 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 11:59:25,897 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+INFO 2024-12-22 11:59:27,214 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 11:59:43,893 middleware Original Content: asdsada
+DEBUG 2024-12-22 11:59:43,894 middleware Encrypted Content: npNxEbtoecegoEb6Va7tGpagDrVmB/Hh5SIUn7JfaOj9oGemtY10
+DEBUG 2024-12-22 11:59:43,895 middleware Generated Hash: f84f427becbecf550275354a682adf772b55ca7678344d48b838adabdae1784a
+DEBUG 2024-12-22 11:59:43,897 middleware Encryption Method: sha256
+DEBUG 2024-12-22 11:59:43,898 middleware Updated POST Data in Middleware: <QueryDict: {'csrfmiddlewaretoken': ['qcYBKkPArX3S8HatvGSfraXc43kI69eQiqtZHLGX8UmDVl2K4vmM2Y8D86mdtLB5'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['npNxEbtoecegoEb6Va7tGpagDrVmB/Hh5SIUn7JfaOj9oGemtY10'], 'attachment': [''], 'hash': ['f84f427becbecf550275354a682adf772b55ca7678344d48b838adabdae1784a'], 'encryption_method': ['sha256']}>
+DEBUG 2024-12-22 11:59:43,907 views Payload sent to Receiving Application: {'recipient_id': 1, 'content': 'npNxEbtoecegoEb6Va7tGpagDrVmB/Hh5SIUn7JfaOj9oGemtY10', 'priority': 'normal', 'sender_id': 4}
+INFO 2024-12-22 11:59:43,908 views Attempting to send message to Caeilanlightwood (ID: 1) with priority 'normal'.
+DEBUG 2024-12-22 11:59:43,909 views Final Payload Before Sending: {'recipient_id': 1, 'content': 'npNxEbtoecegoEb6Va7tGpagDrVmB/Hh5SIUn7JfaOj9oGemtY10', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 11:59:43,911 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'npNxEbtoecegoEb6Va7tGpagDrVmB/Hh5SIUn7JfaOj9oGemtY10', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 11:59:43,915 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 11:59:43,917 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 11:59:43,943 views HTTPError: 400 - {"error": "Missing required fields: 'content', 'hash', or 'encryption_method'."}
+DEBUG 2024-12-22 11:59:45,946 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'npNxEbtoecegoEb6Va7tGpagDrVmB/Hh5SIUn7JfaOj9oGemtY10', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 11:59:45,947 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 11:59:45,947 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 11:59:45,951 views HTTPError: 400 - {"error": "Missing required fields: 'content', 'hash', or 'encryption_method'."}
+DEBUG 2024-12-22 11:59:47,953 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'npNxEbtoecegoEb6Va7tGpagDrVmB/Hh5SIUn7JfaOj9oGemtY10', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 11:59:47,955 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 11:59:47,957 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 11:59:47,972 views HTTPError: 400 - {"error": "Missing required fields: 'content', 'hash', or 'encryption_method'."}
+ERROR 2024-12-22 11:59:48,030 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 35, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 146, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+    ...<3 lines>...
+        }
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x12d28776d50 state=finished raised HTTPError>]
+ERROR 2024-12-22 11:59:48,041 basehttp "POST /send-message/ HTTP/1.1" 500 129483
+INFO 2024-12-22 12:01:49,212 autoreload D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py changed, reloading.
+INFO 2024-12-22 12:01:49,882 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 12:02:15,838 autoreload D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py changed, reloading.
+INFO 2024-12-22 12:02:16,726 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 12:02:36,209 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+INFO 2024-12-22 12:02:43,065 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 12:02:46,393 middleware Original Content: asdsda
+DEBUG 2024-12-22 12:02:46,394 middleware Encrypted Content: +jhSsxXEHRmrcT9xprrxPLS5Q5BSgHwJBIT0NjnFv0g7H63De3c=
+DEBUG 2024-12-22 12:02:46,395 middleware Generated Hash: 59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985
+DEBUG 2024-12-22 12:02:46,396 middleware Encryption Method: sha256
+DEBUG 2024-12-22 12:02:46,397 middleware Updated POST Data in Middleware: <QueryDict: {'csrfmiddlewaretoken': ['fZKE8y5mOByDFdROC1HNL3y2A6mlFAT77df25ZWJvyRosRJ5bQbkmRJtE9oQ2cgm'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['+jhSsxXEHRmrcT9xprrxPLS5Q5BSgHwJBIT0NjnFv0g7H63De3c='], 'attachment': [''], 'hash': ['59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985'], 'encryption_method': ['sha256']}>
+DEBUG 2024-12-22 12:02:46,406 views Payload sent to Receiving Application: {'recipient_id': 1, 'content': '+jhSsxXEHRmrcT9xprrxPLS5Q5BSgHwJBIT0NjnFv0g7H63De3c=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'sha256', 'priority': 'normal', 'sender_id': 4}
+INFO 2024-12-22 12:02:46,408 views Attempting to send message to Caeilanlightwood (ID: 1) with priority 'normal'.
+DEBUG 2024-12-22 12:02:46,408 views Final Payload Before Sending: {'recipient_id': 1, 'content': '+jhSsxXEHRmrcT9xprrxPLS5Q5BSgHwJBIT0NjnFv0g7H63De3c=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'sha256', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:02:46,409 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': '+jhSsxXEHRmrcT9xprrxPLS5Q5BSgHwJBIT0NjnFv0g7H63De3c=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'sha256', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:02:46,410 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:02:46,410 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:02:46,421 views HTTPError: 400 - {"error": "Missing required fields: 'content', 'hash', or 'encryption_method'."}
+DEBUG 2024-12-22 12:02:48,423 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': '+jhSsxXEHRmrcT9xprrxPLS5Q5BSgHwJBIT0NjnFv0g7H63De3c=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'sha256', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:02:48,424 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:02:48,425 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:02:48,456 views HTTPError: 400 - {"error": "Missing required fields: 'content', 'hash', or 'encryption_method'."}
+DEBUG 2024-12-22 12:02:50,460 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': '+jhSsxXEHRmrcT9xprrxPLS5Q5BSgHwJBIT0NjnFv0g7H63De3c=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'sha256', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:02:50,460 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:02:50,461 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:02:50,487 views HTTPError: 400 - {"error": "Missing required fields: 'content', 'hash', or 'encryption_method'."}
+ERROR 2024-12-22 12:02:50,539 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 35, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 149, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+    ...<3 lines>...
+        }
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x22775a06d50 state=finished raised HTTPError>]
+ERROR 2024-12-22 12:02:50,547 basehttp "POST /send-message/ HTTP/1.1" 500 130417
+INFO 2024-12-22 12:05:45,885 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 12:05:54,885 basehttp "GET / HTTP/1.1" 200 3665
+INFO 2024-12-22 12:06:07,519 basehttp "GET /login/ HTTP/1.1" 200 2262
+INFO 2024-12-22 12:06:15,854 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2024-12-22 12:06:15,912 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 12:06:21,173 middleware Original Content: asds
+DEBUG 2024-12-22 12:06:21,174 middleware Encrypted Content: W6StuyvCpoMstn/ZgtrQ+O5k3RQyTTxsG9zzGUgO5q2C7rYk
+DEBUG 2024-12-22 12:06:21,175 middleware Generated Hash: 03d0b0d558c41dfc54faf29f06885536de5c483614b18cd93c0dd645afb4f6ef
+DEBUG 2024-12-22 12:06:21,176 middleware Encryption Method: blake2
+DEBUG 2024-12-22 12:06:21,176 middleware Updated POST Data in Middleware: <QueryDict: {'csrfmiddlewaretoken': ['F4hE4onc6MqDe68uvFEa50nndgrmkscEPBcwutY6mn2Rebvm45cACoBJnSuyBDXn'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['W6StuyvCpoMstn/ZgtrQ+O5k3RQyTTxsG9zzGUgO5q2C7rYk'], 'attachment': [''], 'hash': ['03d0b0d558c41dfc54faf29f06885536de5c483614b18cd93c0dd645afb4f6ef'], 'encryption_method': ['blake2']}>
+DEBUG 2024-12-22 12:06:21,183 views Payload sent to Receiving Application: {'recipient_id': 1, 'content': 'W6StuyvCpoMstn/ZgtrQ+O5k3RQyTTxsG9zzGUgO5q2C7rYk', 'hash': '03d0b0d558c41dfc54faf29f06885536de5c483614b18cd93c0dd645afb4f6ef', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+INFO 2024-12-22 12:06:21,184 views Attempting to send message to Caeilanlightwood (ID: 1) with priority 'normal'.
+DEBUG 2024-12-22 12:06:21,184 views Final Payload Before Sending: {'recipient_id': 1, 'content': 'W6StuyvCpoMstn/ZgtrQ+O5k3RQyTTxsG9zzGUgO5q2C7rYk', 'hash': '03d0b0d558c41dfc54faf29f06885536de5c483614b18cd93c0dd645afb4f6ef', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:06:21,185 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'W6StuyvCpoMstn/ZgtrQ+O5k3RQyTTxsG9zzGUgO5q2C7rYk', 'hash': '03d0b0d558c41dfc54faf29f06885536de5c483614b18cd93c0dd645afb4f6ef', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:06:21,186 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:06:21,187 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:06:21,208 views HTTPError: 400 - {"error": "Missing required fields: 'content', 'hash', or 'encryption_method'."}
+DEBUG 2024-12-22 12:06:23,212 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'W6StuyvCpoMstn/ZgtrQ+O5k3RQyTTxsG9zzGUgO5q2C7rYk', 'hash': '03d0b0d558c41dfc54faf29f06885536de5c483614b18cd93c0dd645afb4f6ef', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:06:23,215 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:06:23,217 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:06:23,242 views HTTPError: 400 - {"error": "Missing required fields: 'content', 'hash', or 'encryption_method'."}
+DEBUG 2024-12-22 12:06:25,247 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'W6StuyvCpoMstn/ZgtrQ+O5k3RQyTTxsG9zzGUgO5q2C7rYk', 'hash': '03d0b0d558c41dfc54faf29f06885536de5c483614b18cd93c0dd645afb4f6ef', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:06:25,249 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:06:25,251 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:06:25,295 views HTTPError: 400 - {"error": "Missing required fields: 'content', 'hash', or 'encryption_method'."}
+ERROR 2024-12-22 12:06:25,368 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 35, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 149, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+    ...<3 lines>...
+        }
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1f170410550 state=finished raised HTTPError>]
+ERROR 2024-12-22 12:06:25,373 basehttp "POST /send-message/ HTTP/1.1" 500 130389
+INFO 2024-12-22 12:08:35,034 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+INFO 2024-12-22 12:08:37,801 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 12:08:43,935 middleware Original Content: asdsda
+DEBUG 2024-12-22 12:08:43,936 middleware Encrypted Content: W0y45j42hv0yD5hDkczQoxFVyfyKKDUT+lc8851daqb2GKKzEFM=
+DEBUG 2024-12-22 12:08:43,937 middleware Generated Hash: 59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985
+DEBUG 2024-12-22 12:08:43,937 middleware Encryption Method: blake2
+DEBUG 2024-12-22 12:08:43,939 middleware Updated POST Data in Middleware: <QueryDict: {'csrfmiddlewaretoken': ['iAo5giw8p1ijSEMmbm85emiS0wOIAjEas7jXGn72FCUxSJ9eKMGvLKwea8RURupT'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['W0y45j42hv0yD5hDkczQoxFVyfyKKDUT+lc8851daqb2GKKzEFM='], 'attachment': [''], 'hash': ['59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985'], 'encryption_method': ['blake2']}>
+DEBUG 2024-12-22 12:08:43,947 views Payload sent to Receiving Application: {'recipient_id': 1, 'content': 'W0y45j42hv0yD5hDkczQoxFVyfyKKDUT+lc8851daqb2GKKzEFM=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+INFO 2024-12-22 12:08:43,948 views Attempting to send message to Caeilanlightwood (ID: 1) with priority 'normal'.
+DEBUG 2024-12-22 12:08:43,949 views Final Payload Before Sending: {'recipient_id': 1, 'content': 'W0y45j42hv0yD5hDkczQoxFVyfyKKDUT+lc8851daqb2GKKzEFM=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:08:43,950 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'W0y45j42hv0yD5hDkczQoxFVyfyKKDUT+lc8851daqb2GKKzEFM=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:08:43,951 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:08:43,951 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:08:43,973 views HTTPError: 400 - {"error": "property 'body' of 'WSGIRequest' object has no setter"}
+DEBUG 2024-12-22 12:08:45,975 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'W0y45j42hv0yD5hDkczQoxFVyfyKKDUT+lc8851daqb2GKKzEFM=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:08:45,975 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:08:45,976 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:08:45,982 views HTTPError: 400 - {"error": "property 'body' of 'WSGIRequest' object has no setter"}
+DEBUG 2024-12-22 12:08:47,983 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'W0y45j42hv0yD5hDkczQoxFVyfyKKDUT+lc8851daqb2GKKzEFM=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:08:47,986 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:08:47,989 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:08:48,015 views HTTPError: 400 - {"error": "property 'body' of 'WSGIRequest' object has no setter"}
+ERROR 2024-12-22 12:08:48,045 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 35, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 149, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+    ...<3 lines>...
+        }
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1f170974cb0 state=finished raised HTTPError>]
+ERROR 2024-12-22 12:08:48,050 basehttp "POST /send-message/ HTTP/1.1" 500 130417
+INFO 2024-12-22 12:08:55,045 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 12:09:00,860 basehttp "GET / HTTP/1.1" 200 3665
+INFO 2024-12-22 12:09:11,027 basehttp "GET /login/ HTTP/1.1" 200 2262
+INFO 2024-12-22 12:09:20,557 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2024-12-22 12:09:20,579 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 12:09:29,647 middleware Original Content: asdasdas
+DEBUG 2024-12-22 12:09:29,649 middleware Encrypted Content: 0B35qWMtkLkZ2y9/VhxqWSGd7/uTHXpxShehTTSGCBkNw+8HkOS3kg==
+DEBUG 2024-12-22 12:09:29,651 middleware Generated Hash: c46a9ffe36de12dc6b205aa19b675ffe44194e174c8f312e10ae2046d6dad1d1
+DEBUG 2024-12-22 12:09:29,653 middleware Encryption Method: sha256
+DEBUG 2024-12-22 12:09:29,655 middleware Updated POST Data in Middleware: <QueryDict: {'csrfmiddlewaretoken': ['TgyqoLv1F1jyUAYU0t2HPEwWv6o4o1WXi3qb6L9CmFCcTJYT6MuY18P08SirwIrE'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['0B35qWMtkLkZ2y9/VhxqWSGd7/uTHXpxShehTTSGCBkNw+8HkOS3kg=='], 'attachment': [''], 'hash': ['c46a9ffe36de12dc6b205aa19b675ffe44194e174c8f312e10ae2046d6dad1d1'], 'encryption_method': ['sha256']}>
+DEBUG 2024-12-22 12:09:29,668 views Payload sent to Receiving Application: {'recipient_id': 1, 'content': '0B35qWMtkLkZ2y9/VhxqWSGd7/uTHXpxShehTTSGCBkNw+8HkOS3kg==', 'hash': 'c46a9ffe36de12dc6b205aa19b675ffe44194e174c8f312e10ae2046d6dad1d1', 'encryption_method': 'sha256', 'priority': 'normal', 'sender_id': 4}
+INFO 2024-12-22 12:09:29,671 views Attempting to send message to Caeilanlightwood (ID: 1) with priority 'normal'.
+DEBUG 2024-12-22 12:09:29,673 views Final Payload Before Sending: {'recipient_id': 1, 'content': '0B35qWMtkLkZ2y9/VhxqWSGd7/uTHXpxShehTTSGCBkNw+8HkOS3kg==', 'hash': 'c46a9ffe36de12dc6b205aa19b675ffe44194e174c8f312e10ae2046d6dad1d1', 'encryption_method': 'sha256', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:09:29,674 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': '0B35qWMtkLkZ2y9/VhxqWSGd7/uTHXpxShehTTSGCBkNw+8HkOS3kg==', 'hash': 'c46a9ffe36de12dc6b205aa19b675ffe44194e174c8f312e10ae2046d6dad1d1', 'encryption_method': 'sha256', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:09:29,677 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:09:29,679 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:09:29,720 views HTTPError: 400 - {"error": "property 'body' of 'WSGIRequest' object has no setter"}
+DEBUG 2024-12-22 12:09:31,722 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': '0B35qWMtkLkZ2y9/VhxqWSGd7/uTHXpxShehTTSGCBkNw+8HkOS3kg==', 'hash': 'c46a9ffe36de12dc6b205aa19b675ffe44194e174c8f312e10ae2046d6dad1d1', 'encryption_method': 'sha256', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:09:31,723 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:09:31,723 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:09:31,728 views HTTPError: 400 - {"error": "property 'body' of 'WSGIRequest' object has no setter"}
+DEBUG 2024-12-22 12:09:33,729 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': '0B35qWMtkLkZ2y9/VhxqWSGd7/uTHXpxShehTTSGCBkNw+8HkOS3kg==', 'hash': 'c46a9ffe36de12dc6b205aa19b675ffe44194e174c8f312e10ae2046d6dad1d1', 'encryption_method': 'sha256', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:09:33,731 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:09:33,732 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:09:33,761 views HTTPError: 400 - {"error": "property 'body' of 'WSGIRequest' object has no setter"}
+ERROR 2024-12-22 12:09:33,792 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 35, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 149, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+    ...<3 lines>...
+        }
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1db028fbed0 state=finished raised HTTPError>]
+ERROR 2024-12-22 12:09:33,798 basehttp "POST /send-message/ HTTP/1.1" 500 130445
+INFO 2024-12-22 12:12:44,977 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 12:12:52,398 basehttp "GET / HTTP/1.1" 200 3665
+INFO 2024-12-22 12:12:59,312 basehttp "GET /login/ HTTP/1.1" 200 2262
+INFO 2024-12-22 12:13:11,712 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2024-12-22 12:13:11,748 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 12:13:15,932 middleware Original Content: asdsdad
+DEBUG 2024-12-22 12:13:15,934 middleware Encrypted Content: q87R5sR8//GYLWpMBCoIjWUiIpZNBkpHW3fj8Dasz93shxYBX+k+
+DEBUG 2024-12-22 12:13:15,936 middleware Generated Hash: 44468ba1c541bba6b092440d0fa1dcd417c3b562262c8c77d54c1994518c900d
+DEBUG 2024-12-22 12:13:15,938 middleware Encryption Method: blake2
+DEBUG 2024-12-22 12:13:15,940 middleware Updated POST Data in Middleware: <QueryDict: {'csrfmiddlewaretoken': ['b3gfM3iW3mLPd8iTkxS0hRdKC8J1xKRaz0T1qXzrhNZmGvNdGx6qZAEeWgSZJZZm'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['q87R5sR8//GYLWpMBCoIjWUiIpZNBkpHW3fj8Dasz93shxYBX+k+'], 'attachment': [''], 'hash': ['44468ba1c541bba6b092440d0fa1dcd417c3b562262c8c77d54c1994518c900d'], 'encryption_method': ['blake2']}>
+DEBUG 2024-12-22 12:13:15,955 views Payload sent to Receiving Application: {'recipient_id': 1, 'content': 'q87R5sR8//GYLWpMBCoIjWUiIpZNBkpHW3fj8Dasz93shxYBX+k+', 'hash': '44468ba1c541bba6b092440d0fa1dcd417c3b562262c8c77d54c1994518c900d', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+INFO 2024-12-22 12:13:15,957 views Attempting to send message to Caeilanlightwood (ID: 1) with priority 'normal'.
+DEBUG 2024-12-22 12:13:15,959 views Final Payload Before Sending: {'recipient_id': 1, 'content': 'q87R5sR8//GYLWpMBCoIjWUiIpZNBkpHW3fj8Dasz93shxYBX+k+', 'hash': '44468ba1c541bba6b092440d0fa1dcd417c3b562262c8c77d54c1994518c900d', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:13:15,961 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'q87R5sR8//GYLWpMBCoIjWUiIpZNBkpHW3fj8Dasz93shxYBX+k+', 'hash': '44468ba1c541bba6b092440d0fa1dcd417c3b562262c8c77d54c1994518c900d', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:13:15,964 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:13:15,966 views Sending request to http://127.0.0.1:8001/receive-message/
+INFO 2024-12-22 12:13:16,022 views Message sent successfully to Caeilanlightwood.
+INFO 2024-12-22 12:13:16,023 basehttp "POST /send-message/ HTTP/1.1" 302 0
+INFO 2024-12-22 12:13:16,137 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 12:13:40,422 middleware Original Content: asdsadas
+DEBUG 2024-12-22 12:13:40,423 middleware Encrypted Content: mmvTpxpGDymWJKaeAdJDOXf5y6SShoPA+0aq9oQOmSsMjdlPV8dp/g==
+DEBUG 2024-12-22 12:13:40,423 middleware Generated Hash: d47d17e2b8a48f54db37223a0b99fde6e918266d108ddfe348848cb245221745
+DEBUG 2024-12-22 12:13:40,424 middleware Encryption Method: sha256
+DEBUG 2024-12-22 12:13:40,424 middleware Updated POST Data in Middleware: <QueryDict: {'csrfmiddlewaretoken': ['yUnhICj5iJmzBi7k8eXfxkANTVtMFujqWR03mwAAwaA64FCEuebFf31hd3CKRJrC'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['mmvTpxpGDymWJKaeAdJDOXf5y6SShoPA+0aq9oQOmSsMjdlPV8dp/g=='], 'attachment': [''], 'hash': ['d47d17e2b8a48f54db37223a0b99fde6e918266d108ddfe348848cb245221745'], 'encryption_method': ['sha256']}>
+DEBUG 2024-12-22 12:13:40,428 views Payload sent to Receiving Application: {'recipient_id': 1, 'content': 'mmvTpxpGDymWJKaeAdJDOXf5y6SShoPA+0aq9oQOmSsMjdlPV8dp/g==', 'hash': 'd47d17e2b8a48f54db37223a0b99fde6e918266d108ddfe348848cb245221745', 'encryption_method': 'sha256', 'priority': 'normal', 'sender_id': 4}
+INFO 2024-12-22 12:13:40,428 views Attempting to send message to Caeilanlightwood (ID: 1) with priority 'normal'.
+DEBUG 2024-12-22 12:13:40,428 views Final Payload Before Sending: {'recipient_id': 1, 'content': 'mmvTpxpGDymWJKaeAdJDOXf5y6SShoPA+0aq9oQOmSsMjdlPV8dp/g==', 'hash': 'd47d17e2b8a48f54db37223a0b99fde6e918266d108ddfe348848cb245221745', 'encryption_method': 'sha256', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:13:40,429 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'mmvTpxpGDymWJKaeAdJDOXf5y6SShoPA+0aq9oQOmSsMjdlPV8dp/g==', 'hash': 'd47d17e2b8a48f54db37223a0b99fde6e918266d108ddfe348848cb245221745', 'encryption_method': 'sha256', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:13:40,429 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:13:40,430 views Sending request to http://127.0.0.1:8001/receive-message/
+INFO 2024-12-22 12:13:40,461 views Message sent successfully to Caeilanlightwood.
+INFO 2024-12-22 12:13:40,463 basehttp "POST /send-message/ HTTP/1.1" 302 0
+INFO 2024-12-22 12:13:40,537 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+INFO 2024-12-22 12:16:27,555 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 12:16:33,177 middleware Original Content: asdsda
+DEBUG 2024-12-22 12:16:33,178 middleware Encrypted Content: 6YWlXY4x+b2AIVvoNZKirSVKTGcpAclM/OSgUFoM1dqkzzxQMAI=
+DEBUG 2024-12-22 12:16:33,179 middleware Generated Hash: 59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985
+DEBUG 2024-12-22 12:16:33,179 middleware Encryption Method: argon2
+DEBUG 2024-12-22 12:16:33,180 middleware Updated POST Data in Middleware: <QueryDict: {'csrfmiddlewaretoken': ['TLuHV5gIwzbG8otvSBmm60FL5dEi01JLhI7tzZxdK0pdBLYPeBAMOJ6fplNgcgRX'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['6YWlXY4x+b2AIVvoNZKirSVKTGcpAclM/OSgUFoM1dqkzzxQMAI='], 'attachment': [''], 'hash': ['59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985'], 'encryption_method': ['argon2']}>
+DEBUG 2024-12-22 12:16:33,185 views Payload sent to Receiving Application: {'recipient_id': 1, 'content': '6YWlXY4x+b2AIVvoNZKirSVKTGcpAclM/OSgUFoM1dqkzzxQMAI=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'argon2', 'priority': 'normal', 'sender_id': 4}
+INFO 2024-12-22 12:16:33,185 views Attempting to send message to Caeilanlightwood (ID: 1) with priority 'normal'.
+DEBUG 2024-12-22 12:16:33,186 views Final Payload Before Sending: {'recipient_id': 1, 'content': '6YWlXY4x+b2AIVvoNZKirSVKTGcpAclM/OSgUFoM1dqkzzxQMAI=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'argon2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:16:33,186 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': '6YWlXY4x+b2AIVvoNZKirSVKTGcpAclM/OSgUFoM1dqkzzxQMAI=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'argon2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:16:33,186 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:16:33,187 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:16:33,226 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 12:16:35,228 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': '6YWlXY4x+b2AIVvoNZKirSVKTGcpAclM/OSgUFoM1dqkzzxQMAI=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'argon2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:16:35,228 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:16:35,229 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:16:35,363 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 12:16:37,364 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': '6YWlXY4x+b2AIVvoNZKirSVKTGcpAclM/OSgUFoM1dqkzzxQMAI=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'argon2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:16:37,365 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:16:37,365 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:16:37,450 views HTTPError: 400 - {"error": "Invalid decryption"}
+ERROR 2024-12-22 12:16:37,479 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 35, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 149, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+    ...<3 lines>...
+        }
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1bbadb6a9e0 state=finished raised HTTPError>]
+ERROR 2024-12-22 12:16:37,485 basehttp "POST /send-message/ HTTP/1.1" 500 130417
+INFO 2024-12-22 12:18:13,150 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 12:18:22,362 basehttp "GET / HTTP/1.1" 200 3665
+INFO 2024-12-22 12:18:25,088 basehttp "GET /login/ HTTP/1.1" 200 2262
+INFO 2024-12-22 12:18:33,993 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2024-12-22 12:18:34,023 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 12:18:52,378 middleware Original Content: asdsadad
+DEBUG 2024-12-22 12:18:52,379 middleware Encrypted Content: P+VTbx5bgeC/loG3xDb9wB0hD478n+X9niWl+EoHo+QARyfb7hXywQ==
+DEBUG 2024-12-22 12:18:52,379 middleware Generated Hash: 406d567df783bddfdbaa02ce4e2a6e3cd21e1a30efc88a3138be690de590f460
+DEBUG 2024-12-22 12:18:52,379 middleware Encryption Method: blake2
+DEBUG 2024-12-22 12:18:52,380 middleware Updated POST Data in Middleware: <QueryDict: {'csrfmiddlewaretoken': ['KcQ4qF5CurQxa1ZN0sgnZAzym1rgs9vzipvCvUjl7IsASk4KjCk7stv2TXwFYFKa'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['P+VTbx5bgeC/loG3xDb9wB0hD478n+X9niWl+EoHo+QARyfb7hXywQ=='], 'attachment': [''], 'hash': ['406d567df783bddfdbaa02ce4e2a6e3cd21e1a30efc88a3138be690de590f460'], 'encryption_method': ['blake2']}>
+DEBUG 2024-12-22 12:18:52,383 views Payload sent to Receiving Application: {'recipient_id': 1, 'content': 'P+VTbx5bgeC/loG3xDb9wB0hD478n+X9niWl+EoHo+QARyfb7hXywQ==', 'hash': '406d567df783bddfdbaa02ce4e2a6e3cd21e1a30efc88a3138be690de590f460', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+INFO 2024-12-22 12:18:52,383 views Attempting to send message to Caeilanlightwood (ID: 1) with priority 'normal'.
+DEBUG 2024-12-22 12:18:52,383 views Final Payload Before Sending: {'recipient_id': 1, 'content': 'P+VTbx5bgeC/loG3xDb9wB0hD478n+X9niWl+EoHo+QARyfb7hXywQ==', 'hash': '406d567df783bddfdbaa02ce4e2a6e3cd21e1a30efc88a3138be690de590f460', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:18:52,384 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'P+VTbx5bgeC/loG3xDb9wB0hD478n+X9niWl+EoHo+QARyfb7hXywQ==', 'hash': '406d567df783bddfdbaa02ce4e2a6e3cd21e1a30efc88a3138be690de590f460', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:18:52,384 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:18:52,384 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:18:52,403 views HTTPError: 400 - {"error":"Sender with ID 4 does not exist."}
+DEBUG 2024-12-22 12:18:54,404 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'P+VTbx5bgeC/loG3xDb9wB0hD478n+X9niWl+EoHo+QARyfb7hXywQ==', 'hash': '406d567df783bddfdbaa02ce4e2a6e3cd21e1a30efc88a3138be690de590f460', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:18:54,407 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:18:54,409 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:18:54,463 views HTTPError: 400 - {"error":"Sender with ID 4 does not exist."}
+DEBUG 2024-12-22 12:18:56,469 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'P+VTbx5bgeC/loG3xDb9wB0hD478n+X9niWl+EoHo+QARyfb7hXywQ==', 'hash': '406d567df783bddfdbaa02ce4e2a6e3cd21e1a30efc88a3138be690de590f460', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:18:56,470 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:18:56,470 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:18:56,481 views HTTPError: 400 - {"error":"Sender with ID 4 does not exist."}
+ERROR 2024-12-22 12:18:56,515 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 35, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 149, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+    ...<3 lines>...
+        }
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x16a1a92fb10 state=finished raised HTTPError>]
+ERROR 2024-12-22 12:18:56,520 basehttp "POST /send-message/ HTTP/1.1" 500 130445
+INFO 2024-12-22 12:21:16,118 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 12:21:21,838 basehttp "GET / HTTP/1.1" 200 3665
+INFO 2024-12-22 12:21:33,030 basehttp "GET /login/ HTTP/1.1" 200 2262
+INFO 2024-12-22 12:21:45,413 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2024-12-22 12:21:45,467 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 12:21:49,009 middleware Original Content: asdsda
+DEBUG 2024-12-22 12:21:49,010 middleware Encrypted Content: waFe1Daxl5uKggqsJgzfVLObt6Ke+eGwJ2gR7tjVhEdAmSY0bBk=
+DEBUG 2024-12-22 12:21:49,011 middleware Generated Hash: 59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985
+DEBUG 2024-12-22 12:21:49,011 middleware Encryption Method: blake2
+DEBUG 2024-12-22 12:21:49,012 middleware Updated POST Data in Middleware: <QueryDict: {'csrfmiddlewaretoken': ['lCfOou1IZZXvuqmOHtzpsCLFUVcfvjnqJ5WStHqQyD7arIopL9K5MOfthpAAyAxm'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['waFe1Daxl5uKggqsJgzfVLObt6Ke+eGwJ2gR7tjVhEdAmSY0bBk='], 'attachment': [''], 'hash': ['59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985'], 'encryption_method': ['blake2']}>
+DEBUG 2024-12-22 12:21:49,016 views Payload sent to Receiving Application: {'recipient_id': 1, 'content': 'waFe1Daxl5uKggqsJgzfVLObt6Ke+eGwJ2gR7tjVhEdAmSY0bBk=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+INFO 2024-12-22 12:21:49,017 views Attempting to send message to Caeilanlightwood (ID: 1) with priority 'normal'.
+DEBUG 2024-12-22 12:21:49,019 views Final Payload Before Sending: {'recipient_id': 1, 'content': 'waFe1Daxl5uKggqsJgzfVLObt6Ke+eGwJ2gR7tjVhEdAmSY0bBk=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:21:49,019 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'waFe1Daxl5uKggqsJgzfVLObt6Ke+eGwJ2gR7tjVhEdAmSY0bBk=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:21:49,020 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:21:49,021 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:21:49,083 views HTTPError: 400 - {"error":"Sender with ID 4 does not exist."}
+DEBUG 2024-12-22 12:21:51,084 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'waFe1Daxl5uKggqsJgzfVLObt6Ke+eGwJ2gR7tjVhEdAmSY0bBk=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:21:51,086 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:21:51,088 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:21:51,112 views HTTPError: 400 - {"error":"Sender with ID 4 does not exist."}
+DEBUG 2024-12-22 12:21:53,125 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'waFe1Daxl5uKggqsJgzfVLObt6Ke+eGwJ2gR7tjVhEdAmSY0bBk=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:21:53,126 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:21:53,127 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:21:53,136 views HTTPError: 400 - {"error":"Sender with ID 4 does not exist."}
+ERROR 2024-12-22 12:21:53,181 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 35, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 149, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+    ...<3 lines>...
+        }
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x249ebe07b10 state=finished raised HTTPError>]
+ERROR 2024-12-22 12:21:53,186 basehttp "POST /send-message/ HTTP/1.1" 500 130417
+INFO 2024-12-22 12:22:43,131 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+INFO 2024-12-22 12:22:44,169 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 12:22:50,823 middleware Original Content: asdasds
+DEBUG 2024-12-22 12:22:50,823 middleware Encrypted Content: ++exiTO+WnTlkKdO4S8FHT2mvSNz/Tglw+L6GTJ/Ef4zTyrTbEpi
+DEBUG 2024-12-22 12:22:50,824 middleware Generated Hash: ec973960663da462a3b03744e083ac62f88b566e2bdbff797593ecfbb0093f05
+DEBUG 2024-12-22 12:22:50,824 middleware Encryption Method: argon2
+DEBUG 2024-12-22 12:22:50,825 middleware Updated POST Data in Middleware: <QueryDict: {'csrfmiddlewaretoken': ['XItQLU02SEPSxn1awsGxL277HA34o1EMlbaUQ7pariZxuF3LA8Rd5eBV44rpriOI'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['++exiTO+WnTlkKdO4S8FHT2mvSNz/Tglw+L6GTJ/Ef4zTyrTbEpi'], 'attachment': [''], 'hash': ['ec973960663da462a3b03744e083ac62f88b566e2bdbff797593ecfbb0093f05'], 'encryption_method': ['argon2']}>
+DEBUG 2024-12-22 12:22:50,829 views Payload sent to Receiving Application: {'recipient_id': 1, 'content': '++exiTO+WnTlkKdO4S8FHT2mvSNz/Tglw+L6GTJ/Ef4zTyrTbEpi', 'hash': 'ec973960663da462a3b03744e083ac62f88b566e2bdbff797593ecfbb0093f05', 'encryption_method': 'argon2', 'priority': 'normal', 'sender_id': 4}
+INFO 2024-12-22 12:22:50,829 views Attempting to send message to Caeilanlightwood (ID: 1) with priority 'normal'.
+DEBUG 2024-12-22 12:22:50,829 views Final Payload Before Sending: {'recipient_id': 1, 'content': '++exiTO+WnTlkKdO4S8FHT2mvSNz/Tglw+L6GTJ/Ef4zTyrTbEpi', 'hash': 'ec973960663da462a3b03744e083ac62f88b566e2bdbff797593ecfbb0093f05', 'encryption_method': 'argon2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:22:50,830 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': '++exiTO+WnTlkKdO4S8FHT2mvSNz/Tglw+L6GTJ/Ef4zTyrTbEpi', 'hash': 'ec973960663da462a3b03744e083ac62f88b566e2bdbff797593ecfbb0093f05', 'encryption_method': 'argon2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:22:50,830 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:22:50,831 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:22:50,872 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 12:22:52,873 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': '++exiTO+WnTlkKdO4S8FHT2mvSNz/Tglw+L6GTJ/Ef4zTyrTbEpi', 'hash': 'ec973960663da462a3b03744e083ac62f88b566e2bdbff797593ecfbb0093f05', 'encryption_method': 'argon2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:22:52,874 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:22:52,874 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:22:52,992 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 12:22:54,994 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': '++exiTO+WnTlkKdO4S8FHT2mvSNz/Tglw+L6GTJ/Ef4zTyrTbEpi', 'hash': 'ec973960663da462a3b03744e083ac62f88b566e2bdbff797593ecfbb0093f05', 'encryption_method': 'argon2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:22:54,996 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:22:54,998 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:22:55,130 views HTTPError: 400 - {"error": "Invalid decryption"}
+ERROR 2024-12-22 12:22:55,152 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 35, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 149, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+    ...<3 lines>...
+        }
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x249ec370cb0 state=finished raised HTTPError>]
+ERROR 2024-12-22 12:22:55,155 basehttp "POST /send-message/ HTTP/1.1" 500 130417
+INFO 2024-12-22 12:28:54,674 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 12:29:02,962 middleware Original Content: asasdasdsa
+DEBUG 2024-12-22 12:29:02,962 middleware Encrypted Content: wmnj8nMGUCB3ZcZWnS8Dx6zET67XYCMgj5xiPnBSrnA5dVvZFf9Iaf/m
+DEBUG 2024-12-22 12:29:02,963 middleware Generated Hash: 7fabc0168b16a544fd4c063b83d57c37e40f7d01b5185259c5eef49c4a3a50e1
+DEBUG 2024-12-22 12:29:02,963 middleware Encryption Method: sha256
+DEBUG 2024-12-22 12:29:02,964 middleware Updated POST Data in Middleware: <QueryDict: {'csrfmiddlewaretoken': ['GrboZf3MevjEA4268wzUagyoV6021XdF4USs4ssUN9tjxm4HccKAus2ciAon4enB'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['wmnj8nMGUCB3ZcZWnS8Dx6zET67XYCMgj5xiPnBSrnA5dVvZFf9Iaf/m'], 'attachment': [''], 'hash': ['7fabc0168b16a544fd4c063b83d57c37e40f7d01b5185259c5eef49c4a3a50e1'], 'encryption_method': ['sha256']}>
+DEBUG 2024-12-22 12:29:02,967 views Payload sent to Receiving Application: {'recipient_id': 1, 'content': 'wmnj8nMGUCB3ZcZWnS8Dx6zET67XYCMgj5xiPnBSrnA5dVvZFf9Iaf/m', 'hash': '7fabc0168b16a544fd4c063b83d57c37e40f7d01b5185259c5eef49c4a3a50e1', 'encryption_method': 'sha256', 'priority': 'normal', 'sender_id': 4}
+INFO 2024-12-22 12:29:02,968 views Attempting to send message to Caeilanlightwood (ID: 1) with priority 'normal'.
+DEBUG 2024-12-22 12:29:02,968 views Final Payload Before Sending: {'recipient_id': 1, 'content': 'wmnj8nMGUCB3ZcZWnS8Dx6zET67XYCMgj5xiPnBSrnA5dVvZFf9Iaf/m', 'hash': '7fabc0168b16a544fd4c063b83d57c37e40f7d01b5185259c5eef49c4a3a50e1', 'encryption_method': 'sha256', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:29:02,969 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'wmnj8nMGUCB3ZcZWnS8Dx6zET67XYCMgj5xiPnBSrnA5dVvZFf9Iaf/m', 'hash': '7fabc0168b16a544fd4c063b83d57c37e40f7d01b5185259c5eef49c4a3a50e1', 'encryption_method': 'sha256', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:29:02,969 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:29:02,969 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:29:02,979 views HTTPError: 400 - {"error":"Recipient or Sender username is missing."}
+DEBUG 2024-12-22 12:29:04,980 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'wmnj8nMGUCB3ZcZWnS8Dx6zET67XYCMgj5xiPnBSrnA5dVvZFf9Iaf/m', 'hash': '7fabc0168b16a544fd4c063b83d57c37e40f7d01b5185259c5eef49c4a3a50e1', 'encryption_method': 'sha256', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:29:04,982 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:29:04,983 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:29:05,005 views HTTPError: 400 - {"error":"Recipient or Sender username is missing."}
+DEBUG 2024-12-22 12:29:07,008 views Final payload sent to Receiving Application: {'recipient_id': 1, 'content': 'wmnj8nMGUCB3ZcZWnS8Dx6zET67XYCMgj5xiPnBSrnA5dVvZFf9Iaf/m', 'hash': '7fabc0168b16a544fd4c063b83d57c37e40f7d01b5185259c5eef49c4a3a50e1', 'encryption_method': 'sha256', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:29:07,010 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:29:07,012 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:29:07,040 views HTTPError: 400 - {"error":"Recipient or Sender username is missing."}
+ERROR 2024-12-22 12:29:07,107 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 35, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 149, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+    ...<3 lines>...
+        }
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x249ebdf3850 state=finished raised HTTPError>]
+ERROR 2024-12-22 12:29:07,112 basehttp "POST /send-message/ HTTP/1.1" 500 130445
+INFO 2024-12-22 12:30:10,626 autoreload D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py changed, reloading.
+INFO 2024-12-22 12:30:11,339 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 12:30:21,429 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+INFO 2024-12-22 12:30:22,559 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 12:30:27,121 middleware Original Content: asdagads
+DEBUG 2024-12-22 12:30:27,121 middleware Encrypted Content: H4R3bmqjBkQbRg4crcuW27InoXqUb4NuLuitvHCINm8WbeXoBCLtig==
+DEBUG 2024-12-22 12:30:27,122 middleware Generated Hash: fd244e0251101ecc876a0917a7d6df9dd3a4941cefb8aeb668037be277ad65eb
+DEBUG 2024-12-22 12:30:27,122 middleware Encryption Method: argon2
+DEBUG 2024-12-22 12:30:27,122 middleware Updated POST Data in Middleware: <QueryDict: {'csrfmiddlewaretoken': ['3wzZMGRbiiE9IJvBaUobmMLiu7fwOUB6rZg3RTgjRWOOF1xceAzRGYf6RBDRRbL2'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['H4R3bmqjBkQbRg4crcuW27InoXqUb4NuLuitvHCINm8WbeXoBCLtig=='], 'attachment': [''], 'hash': ['fd244e0251101ecc876a0917a7d6df9dd3a4941cefb8aeb668037be277ad65eb'], 'encryption_method': ['argon2']}>
+DEBUG 2024-12-22 12:30:27,127 views Payload sent to Receiving Application: {'recipient_id': 1, 'sender': 'Username2', 'content': 'H4R3bmqjBkQbRg4crcuW27InoXqUb4NuLuitvHCINm8WbeXoBCLtig==', 'hash': 'fd244e0251101ecc876a0917a7d6df9dd3a4941cefb8aeb668037be277ad65eb', 'encryption_method': 'argon2', 'priority': 'normal', 'sender_id': 4}
+INFO 2024-12-22 12:30:27,128 views Attempting to send message to Caeilanlightwood (ID: 1) with priority 'normal'.
+DEBUG 2024-12-22 12:30:27,129 views Final Payload Before Sending: {'recipient_id': 1, 'sender': 'Username2', 'content': 'H4R3bmqjBkQbRg4crcuW27InoXqUb4NuLuitvHCINm8WbeXoBCLtig==', 'hash': 'fd244e0251101ecc876a0917a7d6df9dd3a4941cefb8aeb668037be277ad65eb', 'encryption_method': 'argon2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:30:27,129 views Final payload sent to Receiving Application: {'recipient_id': 1, 'sender': 'Username2', 'content': 'H4R3bmqjBkQbRg4crcuW27InoXqUb4NuLuitvHCINm8WbeXoBCLtig==', 'hash': 'fd244e0251101ecc876a0917a7d6df9dd3a4941cefb8aeb668037be277ad65eb', 'encryption_method': 'argon2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:30:27,129 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:30:27,130 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:30:27,170 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 12:30:29,171 views Final payload sent to Receiving Application: {'recipient_id': 1, 'sender': 'Username2', 'content': 'H4R3bmqjBkQbRg4crcuW27InoXqUb4NuLuitvHCINm8WbeXoBCLtig==', 'hash': 'fd244e0251101ecc876a0917a7d6df9dd3a4941cefb8aeb668037be277ad65eb', 'encryption_method': 'argon2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:30:29,172 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:30:29,173 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:30:29,237 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 12:30:31,238 views Final payload sent to Receiving Application: {'recipient_id': 1, 'sender': 'Username2', 'content': 'H4R3bmqjBkQbRg4crcuW27InoXqUb4NuLuitvHCINm8WbeXoBCLtig==', 'hash': 'fd244e0251101ecc876a0917a7d6df9dd3a4941cefb8aeb668037be277ad65eb', 'encryption_method': 'argon2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:30:31,239 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:30:31,240 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:30:31,306 views HTTPError: 400 - {"error": "Invalid decryption"}
+ERROR 2024-12-22 12:30:31,347 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 35, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 151, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+    ...<3 lines>...
+        }
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x13e444c7ed0 state=finished raised HTTPError>]
+ERROR 2024-12-22 12:30:31,358 basehttp "POST /send-message/ HTTP/1.1" 500 130668
+INFO 2024-12-22 12:45:07,743 autoreload D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\middleware.py changed, reloading.
+INFO 2024-12-22 12:45:10,232 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 12:46:06,880 autoreload D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\middleware.py changed, reloading.
+INFO 2024-12-22 12:46:07,682 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 12:49:10,914 autoreload D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\middleware.py changed, reloading.
+INFO 2024-12-22 12:49:11,570 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 12:49:51,963 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 12:50:01,792 basehttp "GET / HTTP/1.1" 200 3665
+INFO 2024-12-22 12:50:04,182 basehttp "GET /login/ HTTP/1.1" 200 2262
+INFO 2024-12-22 12:50:11,923 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2024-12-22 12:50:12,042 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 12:50:22,595 middleware Derived Key (Sending): 73fd6e7692ca96241f00ff957989f5f81461ca7b7781837db69079210cbb66ee
+DEBUG 2024-12-22 12:50:22,598 middleware Nonce (Sending): 4f8a7747a625007f9f3ce28bfa8b4535
+DEBUG 2024-12-22 12:50:22,599 middleware Tag (Sending): 3dbdfc977a7f5284653a5c9da304599c
+DEBUG 2024-12-22 12:50:22,599 middleware Ciphertext (Sending): e7e9239942454778
+DEBUG 2024-12-22 12:50:22,600 middleware Original Content: asdasdsa
+DEBUG 2024-12-22 12:50:22,600 middleware Encrypted Content: T4p3R6YlAH+fPOKL+otFNT29/Jd6f1KEZTpcnaMEWZzn6SOZQkVHeA==
+DEBUG 2024-12-22 12:50:22,601 middleware Generated Hash: 51e38df60fc96d386be58efde0d99c33312c51f93c7a401409e3883e1734ba62
+DEBUG 2024-12-22 12:50:22,601 middleware Encryption Method: blake2
+DEBUG 2024-12-22 12:50:22,602 middleware Updated POST Data in Middleware: <QueryDict: {'csrfmiddlewaretoken': ['QTQQhw4BZZt4S7ntqqY9n9F0d3C1TmuQLHtOqSHJn4TDBGAESmX3tPhjOpWtFhT5'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['T4p3R6YlAH+fPOKL+otFNT29/Jd6f1KEZTpcnaMEWZzn6SOZQkVHeA=='], 'attachment': [''], 'hash': ['51e38df60fc96d386be58efde0d99c33312c51f93c7a401409e3883e1734ba62'], 'encryption_method': ['blake2']}>
+DEBUG 2024-12-22 12:50:22,608 views Payload sent to Receiving Application: {'recipient_id': 1, 'sender': 'Username2', 'content': 'T4p3R6YlAH+fPOKL+otFNT29/Jd6f1KEZTpcnaMEWZzn6SOZQkVHeA==', 'hash': '51e38df60fc96d386be58efde0d99c33312c51f93c7a401409e3883e1734ba62', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+INFO 2024-12-22 12:50:22,610 views Attempting to send message to Caeilanlightwood (ID: 1) with priority 'normal'.
+DEBUG 2024-12-22 12:50:22,611 views Final Payload Before Sending: {'recipient_id': 1, 'sender': 'Username2', 'content': 'T4p3R6YlAH+fPOKL+otFNT29/Jd6f1KEZTpcnaMEWZzn6SOZQkVHeA==', 'hash': '51e38df60fc96d386be58efde0d99c33312c51f93c7a401409e3883e1734ba62', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:50:22,614 views Final payload sent to Receiving Application: {'recipient_id': 1, 'sender': 'Username2', 'content': 'T4p3R6YlAH+fPOKL+otFNT29/Jd6f1KEZTpcnaMEWZzn6SOZQkVHeA==', 'hash': '51e38df60fc96d386be58efde0d99c33312c51f93c7a401409e3883e1734ba62', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:50:22,615 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:50:22,616 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:50:22,661 views HTTPError: 400 - {"error":"Recipient or Sender username is missing."}
+DEBUG 2024-12-22 12:50:24,665 views Final payload sent to Receiving Application: {'recipient_id': 1, 'sender': 'Username2', 'content': 'T4p3R6YlAH+fPOKL+otFNT29/Jd6f1KEZTpcnaMEWZzn6SOZQkVHeA==', 'hash': '51e38df60fc96d386be58efde0d99c33312c51f93c7a401409e3883e1734ba62', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:50:24,666 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:50:24,666 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:50:24,677 views HTTPError: 400 - {"error":"Recipient or Sender username is missing."}
+DEBUG 2024-12-22 12:50:26,679 views Final payload sent to Receiving Application: {'recipient_id': 1, 'sender': 'Username2', 'content': 'T4p3R6YlAH+fPOKL+otFNT29/Jd6f1KEZTpcnaMEWZzn6SOZQkVHeA==', 'hash': '51e38df60fc96d386be58efde0d99c33312c51f93c7a401409e3883e1734ba62', 'encryption_method': 'blake2', 'priority': 'normal', 'sender_id': 4}
+DEBUG 2024-12-22 12:50:26,681 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:50:26,683 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:50:26,728 views HTTPError: 400 - {"error":"Recipient or Sender username is missing."}
+ERROR 2024-12-22 12:50:26,836 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 35, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 151, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+    ...<3 lines>...
+        }
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x20e05b93b10 state=finished raised HTTPError>]
+ERROR 2024-12-22 12:50:26,841 basehttp "POST /send-message/ HTTP/1.1" 500 130668
+INFO 2024-12-22 12:51:08,166 autoreload D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py changed, reloading.
+INFO 2024-12-22 12:51:08,894 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 12:51:51,442 autoreload D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py changed, reloading.
+INFO 2024-12-22 12:51:52,196 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 12:52:28,915 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+INFO 2024-12-22 12:52:29,940 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 12:52:35,202 middleware Derived Key (Sending): 73fd6e7692ca96241f00ff957989f5f81461ca7b7781837db69079210cbb66ee
+DEBUG 2024-12-22 12:52:35,203 middleware Nonce (Sending): 34a62ff3e1655d9edda92d02c36477ac
+DEBUG 2024-12-22 12:52:35,204 middleware Tag (Sending): 12aad32308af40fe3bfe0c50b8de4d3e
+DEBUG 2024-12-22 12:52:35,204 middleware Ciphertext (Sending): ee03e5bf2ff8
+DEBUG 2024-12-22 12:52:35,204 middleware Original Content: asdsad
+DEBUG 2024-12-22 12:52:35,204 middleware Encrypted Content: NKYv8+FlXZ7dqS0Cw2R3rBKq0yMIr0D+O/4MULjeTT7uA+W/L/g=
+DEBUG 2024-12-22 12:52:35,205 middleware Generated Hash: a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227
+DEBUG 2024-12-22 12:52:35,205 middleware Encryption Method: blake2
+DEBUG 2024-12-22 12:52:35,205 middleware Updated POST Data in Middleware: <QueryDict: {'csrfmiddlewaretoken': ['rtSttoZIPGPIA8HUNSW6LK1NrPQpAIWYmhvrCKCQdLfhjHU5fOV0RqD62baRmDld'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['NKYv8+FlXZ7dqS0Cw2R3rBKq0yMIr0D+O/4MULjeTT7uA+W/L/g='], 'attachment': [''], 'hash': ['a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227'], 'encryption_method': ['blake2']}>
+DEBUG 2024-12-22 12:52:35,209 views Payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'NKYv8+FlXZ7dqS0Cw2R3rBKq0yMIr0D+O/4MULjeTT7uA+W/L/g=', 'hash': 'a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227', 'encryption_method': 'blake2', 'priority': 'normal'}
+INFO 2024-12-22 12:52:35,209 views Attempting to send message to Caeilanlightwood (ID: 1) with priority 'normal'.
+DEBUG 2024-12-22 12:52:35,209 views Final Payload Before Sending: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'NKYv8+FlXZ7dqS0Cw2R3rBKq0yMIr0D+O/4MULjeTT7uA+W/L/g=', 'hash': 'a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227', 'encryption_method': 'blake2', 'priority': 'normal'}
+DEBUG 2024-12-22 12:52:35,210 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'NKYv8+FlXZ7dqS0Cw2R3rBKq0yMIr0D+O/4MULjeTT7uA+W/L/g=', 'hash': 'a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227', 'encryption_method': 'blake2', 'priority': 'normal'}
+DEBUG 2024-12-22 12:52:35,210 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:52:35,211 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:52:35,219 views HTTPError: 400 - {"error":"Recipient or Sender username is missing."}
+DEBUG 2024-12-22 12:52:37,220 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'NKYv8+FlXZ7dqS0Cw2R3rBKq0yMIr0D+O/4MULjeTT7uA+W/L/g=', 'hash': 'a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227', 'encryption_method': 'blake2', 'priority': 'normal'}
+DEBUG 2024-12-22 12:52:37,221 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:52:37,221 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:52:37,228 views HTTPError: 400 - {"error":"Recipient or Sender username is missing."}
+DEBUG 2024-12-22 12:52:39,228 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'NKYv8+FlXZ7dqS0Cw2R3rBKq0yMIr0D+O/4MULjeTT7uA+W/L/g=', 'hash': 'a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227', 'encryption_method': 'blake2', 'priority': 'normal'}
+DEBUG 2024-12-22 12:52:39,229 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:52:39,229 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:52:39,237 views HTTPError: 400 - {"error":"Recipient or Sender username is missing."}
+ERROR 2024-12-22 12:52:39,282 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 35, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 150, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+    ...<3 lines>...
+        }
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x13d03de6d50 state=finished raised HTTPError>]
+ERROR 2024-12-22 12:52:39,288 basehttp "POST /send-message/ HTTP/1.1" 500 130637
+INFO 2024-12-22 12:52:44,542 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 12:52:48,390 basehttp "GET / HTTP/1.1" 200 3665
+INFO 2024-12-22 12:52:50,023 basehttp "GET /login/ HTTP/1.1" 200 2262
+INFO 2024-12-22 12:52:58,208 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2024-12-22 12:52:58,279 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 12:53:09,428 middleware Derived Key (Sending): 246172676f6e32696424763d3139246d3d35313230302c743d322c703d382457
+DEBUG 2024-12-22 12:53:09,429 middleware Nonce (Sending): c3fd44b3c7aee8a3034abddc26cddaf8
+DEBUG 2024-12-22 12:53:09,429 middleware Tag (Sending): cebbda383232eddc5dee4b6a4b2bdf01
+DEBUG 2024-12-22 12:53:09,430 middleware Ciphertext (Sending): 883753838656
+DEBUG 2024-12-22 12:53:09,430 middleware Original Content: asdasd
+DEBUG 2024-12-22 12:53:09,430 middleware Encrypted Content: w/1Es8eu6KMDSr3cJs3a+M672jgyMu3cXe5Laksr3wGIN1ODhlY=
+DEBUG 2024-12-22 12:53:09,430 middleware Generated Hash: b2ba7e4f51d53096a005a163f5f7c406d71ca77fc68b0b14325f423a109023e4
+DEBUG 2024-12-22 12:53:09,431 middleware Encryption Method: argon2
+DEBUG 2024-12-22 12:53:09,431 middleware Updated POST Data in Middleware: <QueryDict: {'csrfmiddlewaretoken': ['Q0HY8LGW0Hf4kzNdetjZmwW3qml8DsIsPlmhUIJ0MJAsdBXkvHTIY2KSCImT4pCY'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['w/1Es8eu6KMDSr3cJs3a+M672jgyMu3cXe5Laksr3wGIN1ODhlY='], 'attachment': [''], 'hash': ['b2ba7e4f51d53096a005a163f5f7c406d71ca77fc68b0b14325f423a109023e4'], 'encryption_method': ['argon2']}>
+DEBUG 2024-12-22 12:53:09,433 views Payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'w/1Es8eu6KMDSr3cJs3a+M672jgyMu3cXe5Laksr3wGIN1ODhlY=', 'hash': 'b2ba7e4f51d53096a005a163f5f7c406d71ca77fc68b0b14325f423a109023e4', 'encryption_method': 'argon2', 'priority': 'normal'}
+INFO 2024-12-22 12:53:09,434 views Attempting to send message to Caeilanlightwood (ID: 1) with priority 'normal'.
+DEBUG 2024-12-22 12:53:09,434 views Final Payload Before Sending: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'w/1Es8eu6KMDSr3cJs3a+M672jgyMu3cXe5Laksr3wGIN1ODhlY=', 'hash': 'b2ba7e4f51d53096a005a163f5f7c406d71ca77fc68b0b14325f423a109023e4', 'encryption_method': 'argon2', 'priority': 'normal'}
+DEBUG 2024-12-22 12:53:09,434 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'w/1Es8eu6KMDSr3cJs3a+M672jgyMu3cXe5Laksr3wGIN1ODhlY=', 'hash': 'b2ba7e4f51d53096a005a163f5f7c406d71ca77fc68b0b14325f423a109023e4', 'encryption_method': 'argon2', 'priority': 'normal'}
+DEBUG 2024-12-22 12:53:09,435 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:53:09,435 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:53:09,475 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 12:53:11,476 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'w/1Es8eu6KMDSr3cJs3a+M672jgyMu3cXe5Laksr3wGIN1ODhlY=', 'hash': 'b2ba7e4f51d53096a005a163f5f7c406d71ca77fc68b0b14325f423a109023e4', 'encryption_method': 'argon2', 'priority': 'normal'}
+DEBUG 2024-12-22 12:53:11,480 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:53:11,481 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:53:11,551 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 12:53:13,553 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'w/1Es8eu6KMDSr3cJs3a+M672jgyMu3cXe5Laksr3wGIN1ODhlY=', 'hash': 'b2ba7e4f51d53096a005a163f5f7c406d71ca77fc68b0b14325f423a109023e4', 'encryption_method': 'argon2', 'priority': 'normal'}
+DEBUG 2024-12-22 12:53:13,556 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:53:13,558 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:53:13,648 views HTTPError: 400 - {"error": "Invalid decryption"}
+ERROR 2024-12-22 12:53:13,674 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 35, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 150, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+    ...<3 lines>...
+        }
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x23e32c43b10 state=finished raised HTTPError>]
+ERROR 2024-12-22 12:53:13,679 basehttp "POST /send-message/ HTTP/1.1" 500 130637
+INFO 2024-12-22 12:58:37,417 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 12:58:39,698 basehttp "GET / HTTP/1.1" 200 3665
+INFO 2024-12-22 12:58:48,515 basehttp "GET /login/ HTTP/1.1" 200 2262
+INFO 2024-12-22 12:58:56,735 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2024-12-22 12:58:56,752 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 12:59:01,112 middleware Derived Key (Sending): dbeea567b11fb1e20689e66f8e0896827cabbdfa8de629aa8b1b3160a0cd92c6
+DEBUG 2024-12-22 12:59:01,113 middleware Nonce (Sending): 4f83f58f9ab301f4dc65a9e38bb0eee6
+DEBUG 2024-12-22 12:59:01,113 middleware Tag (Sending): 65558269c7b0d2ddf79d840496f7cc4a
+DEBUG 2024-12-22 12:59:01,114 middleware Ciphertext (Sending): ce46252b656f
+DEBUG 2024-12-22 12:59:01,114 middleware Original Content: asdsad
+DEBUG 2024-12-22 12:59:01,114 middleware Encrypted Content: T4P1j5qzAfTcZanji7Du5mVVgmnHsNLd952EBJb3zErORiUrZW8=
+DEBUG 2024-12-22 12:59:01,115 middleware Generated Hash: a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227
+DEBUG 2024-12-22 12:59:01,115 middleware Encryption Method: sha256
+DEBUG 2024-12-22 12:59:01,115 middleware Updated POST Data in Middleware: <QueryDict: {'csrfmiddlewaretoken': ['felvPiMnJCw6Azj00uIKaMbuAHF0GDJxPzExC4KArlJvo83BtqJibfb4oswgTFba'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['T4P1j5qzAfTcZanji7Du5mVVgmnHsNLd952EBJb3zErORiUrZW8='], 'attachment': [''], 'hash': ['a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227'], 'encryption_method': ['sha256']}>
+DEBUG 2024-12-22 12:59:01,118 views Payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'T4P1j5qzAfTcZanji7Du5mVVgmnHsNLd952EBJb3zErORiUrZW8=', 'hash': 'a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227', 'encryption_method': 'sha256', 'priority': 'normal'}
+INFO 2024-12-22 12:59:01,119 views Attempting to send message to Caeilanlightwood (ID: 1) with priority 'normal'.
+DEBUG 2024-12-22 12:59:01,119 views Final Payload Before Sending: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'T4P1j5qzAfTcZanji7Du5mVVgmnHsNLd952EBJb3zErORiUrZW8=', 'hash': 'a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227', 'encryption_method': 'sha256', 'priority': 'normal'}
+DEBUG 2024-12-22 12:59:01,119 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'T4P1j5qzAfTcZanji7Du5mVVgmnHsNLd952EBJb3zErORiUrZW8=', 'hash': 'a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227', 'encryption_method': 'sha256', 'priority': 'normal'}
+DEBUG 2024-12-22 12:59:01,120 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:59:01,120 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:59:01,131 views HTTPError: 400 - {"error":"Recipient or Sender username is missing."}
+DEBUG 2024-12-22 12:59:03,132 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'T4P1j5qzAfTcZanji7Du5mVVgmnHsNLd952EBJb3zErORiUrZW8=', 'hash': 'a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227', 'encryption_method': 'sha256', 'priority': 'normal'}
+DEBUG 2024-12-22 12:59:03,134 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:59:03,135 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:59:03,153 views HTTPError: 400 - {"error":"Recipient or Sender username is missing."}
+DEBUG 2024-12-22 12:59:05,155 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'T4P1j5qzAfTcZanji7Du5mVVgmnHsNLd952EBJb3zErORiUrZW8=', 'hash': 'a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227', 'encryption_method': 'sha256', 'priority': 'normal'}
+DEBUG 2024-12-22 12:59:05,155 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 12:59:05,155 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 12:59:05,181 views HTTPError: 400 - {"error":"Recipient or Sender username is missing."}
+ERROR 2024-12-22 12:59:05,215 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 35, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 150, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+    ...<3 lines>...
+        }
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1732c90fb10 state=finished raised HTTPError>]
+ERROR 2024-12-22 12:59:05,220 basehttp "POST /send-message/ HTTP/1.1" 500 130637
+INFO 2024-12-22 13:01:00,084 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 13:01:08,074 basehttp "GET / HTTP/1.1" 200 3665
+INFO 2024-12-22 13:01:16,536 basehttp "GET /login/ HTTP/1.1" 200 2262
+INFO 2024-12-22 13:01:24,529 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2024-12-22 13:01:24,572 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 13:01:28,669 middleware Derived Key (Sending): 246172676f6e32696424763d3139246d3d35313230302c743d322c703d382449
+DEBUG 2024-12-22 13:01:28,670 middleware Nonce (Sending): a0dc6f0442436b5584f9a663cb106d31
+DEBUG 2024-12-22 13:01:28,671 middleware Tag (Sending): 24271e802bd439cb9daf1bf0d10e0767
+DEBUG 2024-12-22 13:01:28,671 middleware Ciphertext (Sending): 727a96434e7f
+DEBUG 2024-12-22 13:01:28,672 middleware Original Content: asdsad
+DEBUG 2024-12-22 13:01:28,672 middleware Encrypted Content: oNxvBEJDa1WE+aZjyxBtMSQnHoAr1DnLna8b8NEOB2dyepZDTn8=
+DEBUG 2024-12-22 13:01:28,672 middleware Generated Hash: a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227
+DEBUG 2024-12-22 13:01:28,673 middleware Encryption Method: argon2
+DEBUG 2024-12-22 13:01:28,673 middleware Updated POST Data in Middleware: <QueryDict: {'csrfmiddlewaretoken': ['2gDaYP029XewdRbOxR5EZTuWuIakuAgUJjm5YHqeI2hbahrp6X6ACvJI2lXOOlgv'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['oNxvBEJDa1WE+aZjyxBtMSQnHoAr1DnLna8b8NEOB2dyepZDTn8='], 'attachment': [''], 'hash': ['a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227'], 'encryption_method': ['argon2']}>
+DEBUG 2024-12-22 13:01:28,676 views Payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'oNxvBEJDa1WE+aZjyxBtMSQnHoAr1DnLna8b8NEOB2dyepZDTn8=', 'hash': 'a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227', 'encryption_method': 'argon2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:01:28,676 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'oNxvBEJDa1WE+aZjyxBtMSQnHoAr1DnLna8b8NEOB2dyepZDTn8=', 'hash': 'a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227', 'encryption_method': 'argon2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:01:28,677 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:01:28,677 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:01:28,719 views HTTPError: 400 - {"error": "An error occurred during decryption."}
+DEBUG 2024-12-22 13:01:30,720 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'oNxvBEJDa1WE+aZjyxBtMSQnHoAr1DnLna8b8NEOB2dyepZDTn8=', 'hash': 'a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227', 'encryption_method': 'argon2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:01:30,723 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:01:30,724 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:01:30,787 views HTTPError: 400 - {"error": "An error occurred during decryption."}
+DEBUG 2024-12-22 13:01:32,789 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'oNxvBEJDa1WE+aZjyxBtMSQnHoAr1DnLna8b8NEOB2dyepZDTn8=', 'hash': 'a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227', 'encryption_method': 'argon2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:01:32,791 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:01:32,793 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:01:32,908 views HTTPError: 400 - {"error": "An error occurred during decryption."}
+ERROR 2024-12-22 13:01:32,972 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 36, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 147, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+        payload,
+        {'Authorization': f'Token {RECEIVING_APP_TOKEN}'},
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x199b7197890 state=finished raised HTTPError>]
+ERROR 2024-12-22 13:01:32,978 basehttp "POST /send-message/ HTTP/1.1" 500 130872
+INFO 2024-12-22 13:01:33,067 basehttp - Broken pipe from ('127.0.0.1', 60688)
+DEBUG 2024-12-22 13:01:33,149 middleware Derived Key (Sending): 246172676f6e32696424763d3139246d3d35313230302c743d322c703d382434
+DEBUG 2024-12-22 13:01:33,151 middleware Nonce (Sending): 937b7d2a70a946e25b84261968def18a
+DEBUG 2024-12-22 13:01:33,152 middleware Tag (Sending): 3a56ba5397160d2687c0bd693f5c561a
+DEBUG 2024-12-22 13:01:33,153 middleware Ciphertext (Sending): 5feb5e0ab9a2
+DEBUG 2024-12-22 13:01:33,154 middleware Original Content: asdsad
+DEBUG 2024-12-22 13:01:33,155 middleware Encrypted Content: k3t9KnCpRuJbhCYZaN7xijpWulOXFg0mh8C9aT9cVhpf614KuaI=
+DEBUG 2024-12-22 13:01:33,161 middleware Generated Hash: a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227
+DEBUG 2024-12-22 13:01:33,162 middleware Encryption Method: argon2
+DEBUG 2024-12-22 13:01:33,164 middleware Updated POST Data in Middleware: <QueryDict: {'csrfmiddlewaretoken': ['2gDaYP029XewdRbOxR5EZTuWuIakuAgUJjm5YHqeI2hbahrp6X6ACvJI2lXOOlgv'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['k3t9KnCpRuJbhCYZaN7xijpWulOXFg0mh8C9aT9cVhpf614KuaI='], 'attachment': [''], 'hash': ['a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227'], 'encryption_method': ['argon2']}>
+DEBUG 2024-12-22 13:01:33,173 views Payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'k3t9KnCpRuJbhCYZaN7xijpWulOXFg0mh8C9aT9cVhpf614KuaI=', 'hash': 'a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227', 'encryption_method': 'argon2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:01:33,174 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'k3t9KnCpRuJbhCYZaN7xijpWulOXFg0mh8C9aT9cVhpf614KuaI=', 'hash': 'a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227', 'encryption_method': 'argon2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:01:33,175 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:01:33,177 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:01:33,259 views HTTPError: 400 - {"error": "An error occurred during decryption."}
+DEBUG 2024-12-22 13:01:35,261 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'k3t9KnCpRuJbhCYZaN7xijpWulOXFg0mh8C9aT9cVhpf614KuaI=', 'hash': 'a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227', 'encryption_method': 'argon2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:01:35,263 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:01:35,264 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:01:35,316 views HTTPError: 400 - {"error": "An error occurred during decryption."}
+DEBUG 2024-12-22 13:01:37,318 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'k3t9KnCpRuJbhCYZaN7xijpWulOXFg0mh8C9aT9cVhpf614KuaI=', 'hash': 'a7b4289a427d901d851a4754658812c7b019ae2027450fb59830d8e06822b227', 'encryption_method': 'argon2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:01:37,319 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:01:37,319 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:01:37,387 views HTTPError: 400 - {"error": "An error occurred during decryption."}
+ERROR 2024-12-22 13:01:37,427 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 36, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 147, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+        payload,
+        {'Authorization': f'Token {RECEIVING_APP_TOKEN}'},
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x199b7738950 state=finished raised HTTPError>]
+ERROR 2024-12-22 13:01:37,434 basehttp "POST /send-message/ HTTP/1.1" 500 130872
+INFO 2024-12-22 13:07:20,842 autoreload D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\middleware.py changed, reloading.
+INFO 2024-12-22 13:07:21,565 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 13:09:07,872 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 13:09:12,511 basehttp "GET / HTTP/1.1" 200 3665
+INFO 2024-12-22 13:09:17,768 basehttp "GET /login/ HTTP/1.1" 200 2262
+INFO 2024-12-22 13:09:24,862 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2024-12-22 13:09:24,907 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 13:09:33,008 middleware Derived Key (Sending): 4db49472f2e1296e6659ddc6204b0a47018824192ab2ba32a3dfd8e6dd082ece
+DEBUG 2024-12-22 13:09:33,009 middleware Nonce (Sending): 3a1a9e79e3fb02a4af28180dac6f88b2
+DEBUG 2024-12-22 13:09:33,010 middleware Tag (Sending): 191bbd1c94f1b5c2dfd799f6aa7021b8
+DEBUG 2024-12-22 13:09:33,010 middleware Ciphertext (Sending): 5f6b46f2542589a0
+DEBUG 2024-12-22 13:09:33,010 middleware Original Content: asfasdad
+DEBUG 2024-12-22 13:09:33,011 middleware Encrypted Content: OhqeeeP7AqSvKBgNrG+IshkbvRyU8bXC39eZ9qpwIbhfa0byVCWJoA==
+DEBUG 2024-12-22 13:09:33,011 middleware Generated Hash: d92c58808c6b267c8381c3cb4e9e7d057cf66afcbda0b41e0fe54ba62016b4bf
+DEBUG 2024-12-22 13:09:33,012 middleware Encryption Flow: sha256-argon2-blake2
+DEBUG 2024-12-22 13:09:33,012 middleware Updated POST Data in Middleware: <QueryDict: {'csrfmiddlewaretoken': ['eDv116TGDDZohNfqDzNjAU3hVWDedCzPBBAlqxPs6dHGtfagnzvfvDdLiZ0eaYSM'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['OhqeeeP7AqSvKBgNrG+IshkbvRyU8bXC39eZ9qpwIbhfa0byVCWJoA=='], 'attachment': [''], 'hash': ['d92c58808c6b267c8381c3cb4e9e7d057cf66afcbda0b41e0fe54ba62016b4bf'], 'encryption_method': ['sha256-argon2-blake2']}>
+DEBUG 2024-12-22 13:09:33,017 views Payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'OhqeeeP7AqSvKBgNrG+IshkbvRyU8bXC39eZ9qpwIbhfa0byVCWJoA==', 'hash': 'd92c58808c6b267c8381c3cb4e9e7d057cf66afcbda0b41e0fe54ba62016b4bf', 'encryption_method': 'sha256-argon2-blake2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:09:33,018 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'OhqeeeP7AqSvKBgNrG+IshkbvRyU8bXC39eZ9qpwIbhfa0byVCWJoA==', 'hash': 'd92c58808c6b267c8381c3cb4e9e7d057cf66afcbda0b41e0fe54ba62016b4bf', 'encryption_method': 'sha256-argon2-blake2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:09:33,018 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:09:33,018 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:09:33,069 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 13:09:35,071 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'OhqeeeP7AqSvKBgNrG+IshkbvRyU8bXC39eZ9qpwIbhfa0byVCWJoA==', 'hash': 'd92c58808c6b267c8381c3cb4e9e7d057cf66afcbda0b41e0fe54ba62016b4bf', 'encryption_method': 'sha256-argon2-blake2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:09:35,073 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:09:35,075 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:09:35,162 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 13:09:37,163 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'OhqeeeP7AqSvKBgNrG+IshkbvRyU8bXC39eZ9qpwIbhfa0byVCWJoA==', 'hash': 'd92c58808c6b267c8381c3cb4e9e7d057cf66afcbda0b41e0fe54ba62016b4bf', 'encryption_method': 'sha256-argon2-blake2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:09:37,166 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:09:37,168 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:09:37,261 views HTTPError: 400 - {"error": "Invalid decryption"}
+ERROR 2024-12-22 13:09:37,287 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 36, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 147, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+        payload,
+        {'Authorization': f'Token {RECEIVING_APP_TOKEN}'},
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1ec62007b10 state=finished raised HTTPError>]
+ERROR 2024-12-22 13:09:37,292 basehttp "POST /send-message/ HTTP/1.1" 500 130998
+INFO 2024-12-22 13:23:41,737 autoreload D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\middleware.py changed, reloading.
+INFO 2024-12-22 13:23:42,651 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 13:25:25,674 autoreload D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\middleware.py changed, reloading.
+INFO 2024-12-22 13:25:26,511 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 13:27:17,346 autoreload D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\middleware.py changed, reloading.
+INFO 2024-12-22 13:27:18,033 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 13:34:06,782 autoreload D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\middleware.py changed, reloading.
+INFO 2024-12-22 13:34:07,653 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 13:35:38,173 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 13:35:50,354 basehttp "GET / HTTP/1.1" 200 3665
+INFO 2024-12-22 13:36:01,199 basehttp "GET /login/ HTTP/1.1" 200 2262
+INFO 2024-12-22 13:36:08,705 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2024-12-22 13:36:08,752 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 13:36:12,687 middleware Nonce (Sending): 2a99e24d092dd1ea0b0350df6011350a
+DEBUG 2024-12-22 13:36:12,687 middleware Tag (Sending): 8cc47bdbb1ddd3e8382f953fe688c524
+DEBUG 2024-12-22 13:36:12,688 middleware Ciphertext (Sending): bff692456c
+DEBUG 2024-12-22 13:36:12,688 middleware Encryption Flow: blake2-sha256
+DEBUG 2024-12-22 13:36:12,693 views Payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'KpniTQkt0eoLA1DfYBE1CozEe9ux3dPoOC+VP+aIxSS/9pJFbA==', 'hash': '94ffd4b2232683841f32fbc7a00138492ed462b39732e9a6f9e3f075432eb43f', 'encryption_method': 'blake2-sha256', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:36:12,693 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'KpniTQkt0eoLA1DfYBE1CozEe9ux3dPoOC+VP+aIxSS/9pJFbA==', 'hash': '94ffd4b2232683841f32fbc7a00138492ed462b39732e9a6f9e3f075432eb43f', 'encryption_method': 'blake2-sha256', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:36:12,694 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:36:12,694 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:36:12,703 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 13:36:14,704 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'KpniTQkt0eoLA1DfYBE1CozEe9ux3dPoOC+VP+aIxSS/9pJFbA==', 'hash': '94ffd4b2232683841f32fbc7a00138492ed462b39732e9a6f9e3f075432eb43f', 'encryption_method': 'blake2-sha256', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:36:14,705 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:36:14,706 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:36:14,737 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 13:36:16,741 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'KpniTQkt0eoLA1DfYBE1CozEe9ux3dPoOC+VP+aIxSS/9pJFbA==', 'hash': '94ffd4b2232683841f32fbc7a00138492ed462b39732e9a6f9e3f075432eb43f', 'encryption_method': 'blake2-sha256', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:36:16,743 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:36:16,746 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:36:16,791 views HTTPError: 400 - {"error": "Invalid decryption"}
+ERROR 2024-12-22 13:36:16,913 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 36, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 147, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+        payload,
+        {'Authorization': f'Token {RECEIVING_APP_TOKEN}'},
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x188808787d0 state=finished raised HTTPError>]
+ERROR 2024-12-22 13:36:16,921 basehttp "POST /send-message/ HTTP/1.1" 500 130921
+INFO 2024-12-22 13:36:49,699 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 13:36:57,271 basehttp "GET / HTTP/1.1" 200 3665
+INFO 2024-12-22 13:37:26,666 basehttp "GET / HTTP/1.1" 200 3665
+INFO 2024-12-22 13:37:39,901 basehttp "GET /login/ HTTP/1.1" 200 2262
+INFO 2024-12-22 13:37:47,478 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2024-12-22 13:37:47,527 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 13:37:50,590 middleware Nonce (Sending): 7e235df6b7bfc4540d0725f34c2acf21
+DEBUG 2024-12-22 13:37:50,591 middleware Tag (Sending): e6c917ed292da9f43e25b68c45bf58ef
+DEBUG 2024-12-22 13:37:50,592 middleware Ciphertext (Sending): e538761ba7fb
+DEBUG 2024-12-22 13:37:50,592 middleware Encryption Flow: blake2-sha256
+DEBUG 2024-12-22 13:37:50,599 views Payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'fiNd9re/xFQNByXzTCrPIebJF+0pLan0PiW2jEW/WO/lOHYbp/s=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'blake2-sha256', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:37:50,601 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'fiNd9re/xFQNByXzTCrPIebJF+0pLan0PiW2jEW/WO/lOHYbp/s=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'blake2-sha256', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:37:50,603 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:37:50,605 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:37:50,628 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 13:37:52,632 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'fiNd9re/xFQNByXzTCrPIebJF+0pLan0PiW2jEW/WO/lOHYbp/s=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'blake2-sha256', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:37:52,633 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:37:52,634 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:37:52,660 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 13:37:54,661 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'fiNd9re/xFQNByXzTCrPIebJF+0pLan0PiW2jEW/WO/lOHYbp/s=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'blake2-sha256', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:37:54,664 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:37:54,665 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:37:54,704 views HTTPError: 400 - {"error": "Invalid decryption"}
+ERROR 2024-12-22 13:37:54,823 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 36, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 147, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+        payload,
+        {'Authorization': f'Token {RECEIVING_APP_TOKEN}'},
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1e4757f7890 state=finished raised HTTPError>]
+ERROR 2024-12-22 13:37:54,874 basehttp "POST /send-message/ HTTP/1.1" 500 130921
+INFO 2024-12-22 13:39:43,589 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 13:39:45,627 basehttp "GET / HTTP/1.1" 200 3665
+INFO 2024-12-22 13:39:57,667 basehttp "GET /login/ HTTP/1.1" 200 2262
+INFO 2024-12-22 13:40:16,691 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2024-12-22 13:40:16,715 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 13:40:20,051 middleware Nonce (Sending): 9f58bb11f1d4559fd532e598be6064f8
+DEBUG 2024-12-22 13:40:20,053 middleware Tag (Sending): 28b8aab37f66b4d215f7ee19fa3e312c
+DEBUG 2024-12-22 13:40:20,054 middleware Ciphertext (Sending): 72ca6d6b0869
+DEBUG 2024-12-22 13:40:20,056 middleware Encryption Flow: blake2-sha256
+DEBUG 2024-12-22 13:40:20,067 views Payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'n1i7EfHUVZ/VMuWYvmBk+Ci4qrN/ZrTSFffuGfo+MSxyym1rCGk=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'blake2-sha256', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:40:20,069 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'n1i7EfHUVZ/VMuWYvmBk+Ci4qrN/ZrTSFffuGfo+MSxyym1rCGk=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'blake2-sha256', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:40:20,071 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:40:20,072 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:40:20,125 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 13:40:22,127 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'n1i7EfHUVZ/VMuWYvmBk+Ci4qrN/ZrTSFffuGfo+MSxyym1rCGk=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'blake2-sha256', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:40:22,128 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:40:22,129 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:40:22,159 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 13:40:24,160 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'n1i7EfHUVZ/VMuWYvmBk+Ci4qrN/ZrTSFffuGfo+MSxyym1rCGk=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'blake2-sha256', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:40:24,164 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:40:24,165 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:40:24,189 views HTTPError: 400 - {"error": "Invalid decryption"}
+ERROR 2024-12-22 13:40:24,273 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 36, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 147, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+        payload,
+        {'Authorization': f'Token {RECEIVING_APP_TOKEN}'},
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1d2b6feb750 state=finished raised HTTPError>]
+ERROR 2024-12-22 13:40:24,285 basehttp "POST /send-message/ HTTP/1.1" 500 130921
+INFO 2024-12-22 13:49:23,838 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 13:49:26,293 basehttp "GET / HTTP/1.1" 200 3665
+INFO 2024-12-22 13:49:31,436 basehttp "GET /login/ HTTP/1.1" 200 2262
+INFO 2024-12-22 13:49:39,805 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2024-12-22 13:49:39,861 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 13:49:47,539 middleware Nonce (Sending): 6c385bfb14c9dfa9c42f6265c749e348
+DEBUG 2024-12-22 13:49:47,539 middleware Tag (Sending): d536b430b13482dd55e21badf6f1cd77
+DEBUG 2024-12-22 13:49:47,540 middleware Ciphertext (Sending): 0308a23fd9b8
+DEBUG 2024-12-22 13:49:47,540 middleware Encryption Flow: sha256-blake2
+DEBUG 2024-12-22 13:49:47,543 views Payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'bDhb+xTJ36nEL2Jlx0njSNU2tDCxNILdVeIbrfbxzXcDCKI/2bg=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'sha256-blake2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:49:47,544 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'bDhb+xTJ36nEL2Jlx0njSNU2tDCxNILdVeIbrfbxzXcDCKI/2bg=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'sha256-blake2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:49:47,544 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:49:47,545 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:49:47,567 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 13:49:49,568 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'bDhb+xTJ36nEL2Jlx0njSNU2tDCxNILdVeIbrfbxzXcDCKI/2bg=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'sha256-blake2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:49:49,570 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:49:49,571 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:49:49,593 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 13:49:51,614 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'bDhb+xTJ36nEL2Jlx0njSNU2tDCxNILdVeIbrfbxzXcDCKI/2bg=', 'hash': '59b2f6080b9afd00b52d656ad180310a9ccd3f90310ddea7531b494118817985', 'encryption_method': 'sha256-blake2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:49:51,616 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:49:51,617 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:49:51,648 views HTTPError: 400 - {"error": "Invalid decryption"}
+ERROR 2024-12-22 13:49:51,734 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 36, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 147, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+        payload,
+        {'Authorization': f'Token {RECEIVING_APP_TOKEN}'},
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1a87c05b750 state=finished raised HTTPError>]
+ERROR 2024-12-22 13:49:51,739 basehttp "POST /send-message/ HTTP/1.1" 500 130921
+INFO 2024-12-22 13:54:14,224 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 13:54:17,449 basehttp "GET / HTTP/1.1" 200 3665
+INFO 2024-12-22 13:54:22,440 basehttp "GET /login/ HTTP/1.1" 200 2262
+INFO 2024-12-22 13:54:30,289 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2024-12-22 13:54:30,349 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 13:54:38,147 middleware Final Derived Key (Sending): fa28a325a94f0bf790438509edb9cf78b1c86e00d1ff38f88d2ea6e63d6c4344
+DEBUG 2024-12-22 13:54:38,148 middleware Encryption Flow: sha256-blake2
+DEBUG 2024-12-22 13:54:38,149 middleware Nonce (Sending): 90d87a2ca20b5fe76af285de75cf46d9
+DEBUG 2024-12-22 13:54:38,150 middleware Tag (Sending): 7128a2681bd1260a1249382f1d9ba92e
+DEBUG 2024-12-22 13:54:38,151 middleware Ciphertext (Sending): 09a1f5451f
+DEBUG 2024-12-22 13:54:38,151 middleware Generated Hash: 54c740615f8455f14d543ee46d2ce99d9fbe4ac9b50a7a09b0966ff6c5c83b06
+DEBUG 2024-12-22 13:54:38,152 middleware Modified POST Data: <QueryDict: {'csrfmiddlewaretoken': ['rN0fTZchaifQMEQ0Do09dJuXvatiVX5fIBlTlDLcfTEYsAdEmZr9uNDNRXoBNrKh'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['kNh6LKILX+dq8oXedc9G2XEoomgb0SYKEkk4Lx2bqS4JofVFHw=='], 'attachment': [''], 'hash': ['54c740615f8455f14d543ee46d2ce99d9fbe4ac9b50a7a09b0966ff6c5c83b06'], 'encryption_method': ['sha256-blake2']}>
+DEBUG 2024-12-22 13:54:38,165 views Payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'kNh6LKILX+dq8oXedc9G2XEoomgb0SYKEkk4Lx2bqS4JofVFHw==', 'hash': '54c740615f8455f14d543ee46d2ce99d9fbe4ac9b50a7a09b0966ff6c5c83b06', 'encryption_method': 'sha256-blake2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:54:38,166 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'kNh6LKILX+dq8oXedc9G2XEoomgb0SYKEkk4Lx2bqS4JofVFHw==', 'hash': '54c740615f8455f14d543ee46d2ce99d9fbe4ac9b50a7a09b0966ff6c5c83b06', 'encryption_method': 'sha256-blake2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:54:38,168 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:54:38,170 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:54:38,209 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 13:54:40,213 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'kNh6LKILX+dq8oXedc9G2XEoomgb0SYKEkk4Lx2bqS4JofVFHw==', 'hash': '54c740615f8455f14d543ee46d2ce99d9fbe4ac9b50a7a09b0966ff6c5c83b06', 'encryption_method': 'sha256-blake2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:54:40,215 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:54:40,216 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:54:40,254 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 13:54:42,258 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'kNh6LKILX+dq8oXedc9G2XEoomgb0SYKEkk4Lx2bqS4JofVFHw==', 'hash': '54c740615f8455f14d543ee46d2ce99d9fbe4ac9b50a7a09b0966ff6c5c83b06', 'encryption_method': 'sha256-blake2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:54:42,259 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:54:42,260 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:54:42,291 views HTTPError: 400 - {"error": "Invalid decryption"}
+ERROR 2024-12-22 13:54:42,359 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 36, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 147, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+        payload,
+        {'Authorization': f'Token {RECEIVING_APP_TOKEN}'},
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x1f509176ad0 state=finished raised HTTPError>]
+ERROR 2024-12-22 13:54:42,368 basehttp "POST /send-message/ HTTP/1.1" 500 130921
+INFO 2024-12-22 13:57:01,832 autoreload Watching for file changes with StatReloader
+INFO 2024-12-22 13:57:06,478 basehttp "GET / HTTP/1.1" 200 3665
+INFO 2024-12-22 13:57:10,951 basehttp "GET /login/ HTTP/1.1" 200 2262
+INFO 2024-12-22 13:57:17,818 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2024-12-22 13:57:17,895 basehttp "GET /send-message/ HTTP/1.1" 200 6845
+DEBUG 2024-12-22 13:57:24,770 middleware Final Derived Key (Sending): fa28a325a94f0bf790438509edb9cf78b1c86e00d1ff38f88d2ea6e63d6c4344
+DEBUG 2024-12-22 13:57:24,771 middleware Encryption Flow: sha256-blake2
+DEBUG 2024-12-22 13:57:24,772 middleware Nonce (Sending): 6548197dab1cb9d43f93f5fb40703589
+DEBUG 2024-12-22 13:57:24,772 middleware Tag (Sending): 26740c8134f1ea08d309d1f9a6770fee
+DEBUG 2024-12-22 13:57:24,773 middleware Ciphertext (Sending): 34a02b5ef963de9f
+DEBUG 2024-12-22 13:57:24,773 middleware Generated Hash: d11d3c77c3b55bff5653f12225bd65d9d4a30ad3261041c0b8244ed13eb52fd7
+DEBUG 2024-12-22 13:57:24,773 middleware Modified POST Data: <QueryDict: {'csrfmiddlewaretoken': ['ceEgmDgJQh5SuHSCZByKniHA6Iwq008JpxmcERARO89zm87ywzGxozjliKPf3Jjg'], 'recipient': ['Caeilanlightwood'], 'priority': ['normal'], 'content': ['ZUgZfascudQ/k/X7QHA1iSZ0DIE08eoI0wnR+aZ3D+40oCte+WPenw=='], 'attachment': [''], 'hash': ['d11d3c77c3b55bff5653f12225bd65d9d4a30ad3261041c0b8244ed13eb52fd7'], 'encryption_method': ['sha256-blake2']}>
+DEBUG 2024-12-22 13:57:24,776 views Payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'ZUgZfascudQ/k/X7QHA1iSZ0DIE08eoI0wnR+aZ3D+40oCte+WPenw==', 'hash': 'd11d3c77c3b55bff5653f12225bd65d9d4a30ad3261041c0b8244ed13eb52fd7', 'encryption_method': 'sha256-blake2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:57:24,776 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'ZUgZfascudQ/k/X7QHA1iSZ0DIE08eoI0wnR+aZ3D+40oCte+WPenw==', 'hash': 'd11d3c77c3b55bff5653f12225bd65d9d4a30ad3261041c0b8244ed13eb52fd7', 'encryption_method': 'sha256-blake2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:57:24,777 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:57:24,777 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:57:24,788 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 13:57:26,789 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'ZUgZfascudQ/k/X7QHA1iSZ0DIE08eoI0wnR+aZ3D+40oCte+WPenw==', 'hash': 'd11d3c77c3b55bff5653f12225bd65d9d4a30ad3261041c0b8244ed13eb52fd7', 'encryption_method': 'sha256-blake2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:57:26,790 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:57:26,791 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:57:26,820 views HTTPError: 400 - {"error": "Invalid decryption"}
+DEBUG 2024-12-22 13:57:28,821 views Final payload sent to Receiving Application: {'recipient_id': 'Caeilanlightwood', 'sender': 'Username2', 'content': 'ZUgZfascudQ/k/X7QHA1iSZ0DIE08eoI0wnR+aZ3D+40oCte+WPenw==', 'hash': 'd11d3c77c3b55bff5653f12225bd65d9d4a30ad3261041c0b8244ed13eb52fd7', 'encryption_method': 'sha256-blake2', 'priority': 'normal', 'attachment': None}
+DEBUG 2024-12-22 13:57:28,823 views Headers: {'Authorization': 'Token b0ee9fddfbd2590308c9ec660b64e95d5ac90b2'}
+INFO 2024-12-22 13:57:28,824 views Sending request to http://127.0.0.1:8001/receive-message/
+ERROR 2024-12-22 13:57:28,851 views HTTPError: 400 - {"error": "Invalid decryption"}
+ERROR 2024-12-22 13:57:28,926 log Internal Server Error: /send-message/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 36, in send_request
+    response.raise_for_status()  # Raise an HTTPError for bad responses (4xx, 5xx)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/receive-message/
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\School\IT 120\Final Project\Final Project\Team\Billy\Sending\sending_application\views.py", line 147, in post
+    response = send_request(
+        RECEIVING_PROJECT_BASE_URL,
+        payload,
+        {'Authorization': f'Token {RECEIVING_APP_TOKEN}'},
+    )
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\tenacity\__init__.py", line 419, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x29e231e6ad0 state=finished raised HTTPError>]
+ERROR 2024-12-22 13:57:28,932 basehttp "POST /send-message/ HTTP/1.1" 500 130949
