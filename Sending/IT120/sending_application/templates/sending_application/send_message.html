@@ -1,0 +1,154 @@
+{% extends 'sending_application/base.html' %}
+
+{% block title %}Send Message{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white text-center">
+            <h2>Send a Message</h2>
+        </div>
+        <div class="card-body">
+            {% if form.errors %}
+            <div class="alert alert-danger" role="alert">
+                <ul>
+                    {% for field, errors in form.errors.items %}
+                    <li>{{ field|capfirst }}: {{ errors|join:", " }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <!-- Recipient Input -->
+                <div class="mb-3">
+                    <label for="recipient" class="form-label">Recipient (User ID)</label>
+                    <input type="number" class="form-control" id="recipient" name="recipient" placeholder="Enter the recipient's User ID" required aria-describedby="recipientHelp">
+                </div>
+
+                <!-- Priority Selection -->
+                <div class="mb-3">
+                    <label for="priority" class="form-label">Priority</label>
+                    <select class="form-select" id="priority" name="priority" aria-label="Priority Selection">
+                        <option value="normal" selected>Normal</option>
+                        <option value="high">High</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+
+                <!-- Message Content -->
+                <div class="mb-3">
+                    <label for="content" class="form-label">Message Content</label>
+                    <textarea class="form-control" id="content" name="content" rows="4" placeholder="Type your message here" required maxlength="500"></textarea>
+                </div>
+
+                <!-- File Attachment -->
+                <div class="mb-3">
+                    <label for="attachment" class="form-label">Attachment (optional)</label>
+                    <input type="file" class="form-control" id="attachment" name="attachment" accept=".jpg,.jpeg,.png,.pdf">
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary w-100">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Logout Button -->
+<div class="text-center mt-4">
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</button>
+</div>
+
+<!-- Logout Confirmation Modal -->
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Are you sure you want to log out?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Logout</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title" id="successModalLabel">Message Sent</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Your message was sent successfully!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Failure Modal -->
+<div class="modal fade" id="failureModal" tabindex="-1" aria-labelledby="failureModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="failureModalLabel">Message Failed</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Failed to send your message. Please try again.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add some responsiveness -->
+<style>
+    @media (max-inline-size: 768px) {
+        .container {
+            padding: 15px;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Retrieve success and error values directly as boolean or string
+        var success = "{{ success|yesno:'true,false' }}";
+        var error = "{{ error|yesno:'true,false' }}";
+
+        // Convert the string back to boolean
+        success = success === 'true';
+        error = error === 'true';
+
+    // Show the appropriate modal
+        if (success) {
+            var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            successModal.show();
+        }
+        if (error) {
+            var failureModal = new bootstrap.Modal(document.getElementById('failureModal'));
+            failureModal.show();
+        }
+    });
+</script>
+
+
+{% endblock %}
