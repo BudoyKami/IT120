@@ -1,0 +1,7 @@
+Dependencies
+
+pip install django djangorestframework
+pip install psycopg
+pip install cryptography
+pip install requests
+
