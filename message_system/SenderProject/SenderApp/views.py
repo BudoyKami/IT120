@@ -4,9 +4,14 @@ from rest_framework import status
 from .models import SenderMessage
 from CommonApp.models import User
 from .serializers import UserSerializer, SenderMessageSerializer
-import requests
 from cryptography.fernet import Fernet
 from django.core.exceptions import ObjectDoesNotExist
+from django.conf import settings
+import requests
+import logging
+
+# Logger configuration
+logger = logging.getLogger('sending_application')
 
 # Encryption key (shared between SenderApp and ReceiverApp)
 ENCRYPTION_KEY = b'k5PPyDG1cOCPwSP1KWeULwW3EoolbiRxL5OV391YeIk='
@@ -19,13 +24,16 @@ class UserView(APIView):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+            logger.info("User created successfully: %s", serializer.data)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+        logger.error("User creation failed: %s", serializer.errors)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request):
         """List all users."""
         users = User.objects.all()
         serializer = UserSerializer(users, many=True)
+        logger.info("Retrieved %d users", len(users))
         return Response(serializer.data)
 
 
@@ -37,6 +45,7 @@ class SendMessageView(APIView):
             required_fields = ["sender_username", "recipient_username", "message_content", "priority"]
             missing_fields = [field for field in required_fields if field not in request.data]
             if missing_fields:
+                logger.error("Missing fields in request: %s", missing_fields)
                 return Response({"error": f"Missing fields: {', '.join(missing_fields)}"}, status=400)
 
             # Validate sender and recipient
@@ -58,31 +67,41 @@ class SendMessageView(APIView):
                 message = serializer.save()
 
                 # Forward the message to ReceiverApp
-                receiver_url = "http://127.0.0.1:8001/api/receive_message/"
+                receiver_url = settings.RECEIVING_PROJECT_BASE_URL
+                headers = {
+                    "Authorization": f"Bearer {settings.RECEIVING_APP_TOKEN}",
+                    "Content-Type": "application/json",
+                }
                 response = requests.post(receiver_url, json={
                     "sender_username": sender.username,
                     "recipient_username": recipient.username,
                     "priority": request.data.get("priority"),
                     "decrypted_message": encrypted_message,
                     "timestamp": message.timestamp.isoformat(),
-                })
+                }, headers=headers)
 
                 if response.status_code == 201:
+                    logger.info("Message forwarded successfully to ReceiverApp")
                     return Response({
                         "success": "Message sent successfully and forwarded to ReceiverApp",
                         "message_id": message.id,
                         "recipient": recipient.username,
                     }, status=201)
                 else:
+                    logger.error("Failed to forward message to ReceiverApp: %s", response.text)
                     return Response({
                         "error": f"Failed to forward message to ReceiverApp: {response.text}"
                     }, status=400)
 
+            logger.error("Message creation failed: %s", serializer.errors)
             return Response(serializer.errors, status=400)
 
         except User.DoesNotExist as e:
+            logger.error("User validation error: %s", e)
             return Response({"error": f"User not found: {str(e)}"}, status=400)
         except requests.RequestException as e:
+            logger.error("Connection error with ReceiverApp: %s", e)
             return Response({"error": f"Failed to connect to ReceiverApp: {str(e)}"}, status=500)
         except Exception as e:
+            logger.critical("Unexpected error: %s", e, exc_info=True)
             return Response({"error": f"Unexpected error: {str(e)}"}, status=500)

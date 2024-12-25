@@ -1,0 +1,89 @@
+{% extends 'sending_application/base.html' %} 
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<style>
+    .btn-dark-purple {
+        background-color: #503a75;
+        color: azure;
+        transition: all 0.3s ease;
+    }
+    .btn-dark-purple:hover {
+        background-color: #3c2b57;
+        transform: translateY(-2px);
+        color: azure;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .text-dark-purple {
+        color: #451e83;
+    }
+
+    .card {
+        animation: fadeIn 0.5s ease-out;
+    }
+</style>
+
+{% load static %}
+
+<div class="container mt-4">
+
+  <div class="card shadow-sm">
+    <div class="card-body p-5">
+        <!-- Centered Image -->
+        <div class="d-flex justify-content-center">
+            <img src="{% static 'images/Messages-bro.svg' %}" alt="Icon" 
+                 class="img-fluid mb-4" 
+                 style="max-width: 200px; width: 100%;">
+        </div>
+        
+        <h2 class="text-center mb-2 fw-bold text-dark-purple">Create an Account</h2>
+        <p class="text-center text-opacity-50 pb-4">Enter your credentials to access your account</p>
+
+        <!-- Form Section -->
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-4 form-floating">
+                <input type="text" class="form-control form-control-lg" id="username" name="username" placeholder="Username" required autofocus>
+                <label for="username" class="form-label fw-semibold text-dark-purple">Username</label>
+            </div>
+
+            <div class="mb-4 form-floating">
+                <input type="password" class="form-control form-control-lg" id="password1" name="password1" placeholder="Password" required>
+                <label for="password1" class="form-label fw-semibold text-dark-purple">Password</label>
+            </div>
+
+            <div class="mb-4 form-floating">
+                <input type="password" class="form-control form-control-lg" id="password2" name="password2" placeholder="Confirm Password" required>
+                <label for="password2" class="form-label fw-semibold text-dark-purple">Confirm Password</label>
+            </div>
+
+            <button type="submit" class="btn btn-dark-purple btn-lg w-100 fw-semibold">Register</button>
+
+            {% if form.errors %}
+            <div class="alert alert-danger mt-4" role="alert">
+                <ul class="mb-0">
+                    {% for field, errors in form.errors.items %}
+                    <li>
+                        <strong>{{ field|capfirst }}:</strong> {{ errors|striptags }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </form>
+
+        <!-- Sign-In Link -->
+        <p class="text-center mt-4 mb-0">
+            Already have an account? <a href="{% url 'login' %}" class="text-decoration-none">Login here</a>.
+        </p>
+    </div>
+</div>
+
+
+</div>
+
+
+{% endblock %}
