@@ -1,66 +1,126 @@
 {% extends 'receiver/base.html' %}
-
-{% block title %}View Messages{% endblock %}
-
+<!-- Cutout -->
+{% block title %} View Messages {% endblock %}
+<!-- Cutout -->
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-10">
-        <h2 class="text-center mb-4">Your Messages</h2>
+<div class="container py-5">
+  <h2 class="text-center text-purple mb-4">
+    <i class="fas fa-envelope-open-text"></i> Your Messages
+  </h2>
 
-        <div class="card p-3 mb-4 shadow-sm">
-            <!-- Search and Filter Form -->
-            <form method="GET" class="row g-3">
-                <div class="col-md-3">
-                    <input type="text" name="search" class="form-control" placeholder="Search messages..." value="{{ request.GET.search }}">
-                </div>
-                <div class="col-md-2">
-                    <select name="priority" class="form-select">
-                        <option value="">Filter by Priority</option>
-                        <option value="low" {% if request.GET.priority == 'low' %}selected{% endif %}>Low</option>
-                        <option value="normal" {% if request.GET.priority == 'normal' %}selected{% endif %}>Normal</option>
-                        <option value="high" {% if request.GET.priority == 'high' %}selected{% endif %}>High</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select name="sender" class="form-select">
-                        <option value="">Filter by Sender</option>
-                        {% for sender in senders %}
-                            <option value="{{ sender.sender_username }}" {% if request.GET.sender == sender.sender_username %}selected{% endif %}>
-                                {{ sender.sender_username }}
-                            </option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select name="sort" class="form-select">
-                        <option value="-timestamp" {% if request.GET.sort == '-timestamp' %}selected{% endif %}>Newest First</option>
-                        <option value="timestamp" {% if request.GET.sort == 'timestamp' %}selected{% endif %}>Oldest First</option>
-                        <option value="priority" {% if request.GET.sort == 'priority' %}selected{% endif %}>Priority</option>
-                    </select>
-                </div>
-                <div class="col-md-2 text-end">
-                    <button type="submit" class="btn btn-primary w-100">Apply</button>
-                </div>
-            </form>
-        </div>
+  <!-- Search and Filter Section -->
+  <div class="card p-4 mb-5 shadow border-purple">
+    <h4 class="text-purple mb-3"><i class="fas fa-filter"></i> Filter & Search</h4>
+    <form method="GET" class="row g-3">
+      <div class="col-md-3">
+        <input
+          type="text"
+          name="search"
+          class="form-control border-purple"
+          placeholder="Search messages..."
+          value="{{ request.GET.search }}"
+        />
+      </div>
+      <div class="col-md-3">
+        <select name="priority" class="form-select border-purple">
+          <option value="">Filter by Priority</option>
+          <option value="low" {% if request.GET.priority == 'low' %}selected{% endif %}>
+            Low
+          </option>
+          <option value="normal" {% if request.GET.priority == 'normal' %}selected{% endif %}>
+            Normal
+          </option>
+          <option value="high" {% if request.GET.priority == 'high' %}selected{% endif %}>
+            High
+          </option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <select name="sender" class="form-select border-purple">
+          <option value="">Filter by Sender</option>
+          {% for sender in senders %}
+          <option value="{{ sender.sender_username }}" {% if request.GET.sender == sender.sender_username %}selected{% endif %}>
+            {{ sender.sender_username }}
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-md-2">
+        <select name="sort" class="form-select border-purple">
+          <option value="-timestamp" {% if request.GET.sort == '-timestamp' %}selected{% endif %}>
+            Newest First
+          </option>
+          <option value="timestamp" {% if request.GET.sort == 'timestamp' %}selected{% endif %}>
+            Oldest First
+          </option>
+          <option value="priority" {% if request.GET.sort == 'priority' %}selected{% endif %}>
+            Priority
+          </option>
+        </select>
+      </div>
+      <div class="col-md-1">
+        <button type="submit" class="btn btn-purple w-100">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </form>
+  </div>
 
-        {% if messages %}
-            <!-- Messages List -->
-            <div class="list-group">
-                {% for message in messages %}
-                    <div class="list-group-item mb-2">
-                        <h5>From: <span class="fw-bold">{{ message.sender_username }}</span></h5>
-                        <p class="mb-1">{{ message.decrypted_message }}</p>
-                        <div class="d-flex justify-content-between text-muted">
-                            <span>Priority: {{ message.priority|capfirst }}</span>
-                            <span>Received: {{ message.timestamp|date:"d M Y, h:i A" }}</span>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        {% else %}
-            <p class="text-center">No messages to display.</p>
-        {% endif %}
+  <!-- Messages Section -->
+  {% if messages %}
+  <div class="list-group">
+    {% for message in messages %}
+    <div class="list-group-item mb-3 shadow-sm border-purple">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h5 class="mb-0 text-purple">
+          <i class="fas fa-user-circle"></i> {{ message.sender_username }}
+        </h5>
+        <span class="badge bg-purple text-white">
+          <i class="fas fa-flag"></i> {{ message.priority|capfirst }}
+        </span>
+      </div>
+      <p class="mb-2">
+        <i class="fas fa-comment"></i> {{ message.decrypted_message }}
+      </p>
+      <div class="text-muted small">
+        <i class="fas fa-clock"></i> {{ message.timestamp|date:"d M Y, h:i A" }}
+      </div>
     </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="text-center text-muted">
+    <i class="fas fa-inbox fa-3x"></i>
+    <p class="mt-3">No messages to display.</p>
+  </div>
+  {% endif %}
 </div>
+
+<style>
+  .text-purple {
+    color: #6a1b9a;
+  }
+
+  .btn-purple {
+    background-color: #6a1b9a;
+    color: white;
+    border: none;
+  }
+
+  .btn-purple:hover {
+    background-color: #4a148c;
+  }
+
+  .bg-purple {
+    background-color: #f3e5f5;
+  }
+
+  .border-purple {
+    border-color: #6a1b9a !important;
+  }
+
+  .shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+</style>
 {% endblock %}
