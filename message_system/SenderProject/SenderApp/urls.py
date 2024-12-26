@@ -1,7 +1,10 @@
 from django.urls import path
-from .views import UserView, SendMessageView
+from . import views
 
 urlpatterns = [
-    path('api/users/', UserView.as_view(), name='users'),
-    path('api/send_message/', SendMessageView.as_view(), name='send_message'),
+    path('', views.homepage, name='sender_homepage'),
+    path('register/', views.register_user, name='sender_register'),
+    path('login/', views.login_user, name='sender_login'),
+    path('logout/', views.logout_user, name='sender_logout'),
+    path('send_message/', views.send_message, name='sender_send_message'),
 ]

@@ -23,9 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-v6g6gm$m(d#x&5gz16k&n2m#1h%7g$tu!%rr!fu(9ny$v(3=x2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+RECEIVER_APP_URL = "http://127.0.0.1:8001/api/receive_message/"
 
 # Application definition
 
@@ -78,11 +82,11 @@ WSGI_APPLICATION = 'SenderProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'message_system',
+        'NAME': 'message_system_test',
         'USER': 'sender_user',
         'PASSWORD': 'sender123',
         'HOST': 'localhost',
-        'PORT': '5433',
+        'PORT': '5432',
     }
 }
 

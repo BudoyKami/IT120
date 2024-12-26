@@ -27,6 +27,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -78,11 +81,11 @@ WSGI_APPLICATION = 'ReceiverProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'message_system',
+        'NAME': 'message_system_test',
         'USER': 'receiver_user',
         'PASSWORD': 'receiver123',
         'HOST': 'localhost',
-        'PORT': '5433',
+        'PORT': '5432',
     }
 }
 

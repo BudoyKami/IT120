@@ -1,107 +1,149 @@
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import SenderMessage
-from CommonApp.models import User
-from .serializers import UserSerializer, SenderMessageSerializer
-from cryptography.fernet import Fernet
-from django.core.exceptions import ObjectDoesNotExist
-from django.conf import settings
+from CommonApp.models import User as CommonUser
+from .serializers import SenderMessageSerializer
 import requests
+from cryptography.fernet import Fernet
+from django.conf import settings
+from django.contrib.auth.hashers import check_password
+from django.db import transaction
+from functools import wraps
 import logging
+from datetime import datetime
 
-# Logger configuration
-logger = logging.getLogger('sending_application')
+logger = logging.getLogger(__name__)
 
-# Encryption key (shared between SenderApp and ReceiverApp)
+# Encryption key
 ENCRYPTION_KEY = b'k5PPyDG1cOCPwSP1KWeULwW3EoolbiRxL5OV391YeIk='
 cipher = Fernet(ENCRYPTION_KEY)
+receiver_url = settings.RECEIVER_APP_URL
 
+# Custom decorator to check login status
+def custom_login_required(view_func):
+    @wraps(view_func)
+    def wrapper(request, *args, **kwargs):
+        if not request.session.get('user_id'):
+            messages.error(request, 'You must be logged in to access this page.')
+            return redirect('sender_login')
+        return view_func(request, *args, **kwargs)
+    return wrapper
 
-class UserView(APIView):
-    def post(self, request):
-        """Create a new user."""
-        serializer = UserSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            logger.info("User created successfully: %s", serializer.data)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        logger.error("User creation failed: %s", serializer.errors)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+# Homepage View
+def homepage(request):
+    return render(request, 'sender/homepage.html')
 
-    def get(self, request):
-        """List all users."""
-        users = User.objects.all()
-        serializer = UserSerializer(users, many=True)
-        logger.info("Retrieved %d users", len(users))
-        return Response(serializer.data)
+# Login View
+def login_user(request):
+    """Handle user login."""
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
-
-class SendMessageView(APIView):
-    def post(self, request):
-        """Send an encrypted message to the recipient and forward it to ReceiverApp."""
         try:
-            # Validate request data
-            required_fields = ["sender_username", "recipient_username", "message_content", "priority"]
-            missing_fields = [field for field in required_fields if field not in request.data]
-            if missing_fields:
-                logger.error("Missing fields in request: %s", missing_fields)
-                return Response({"error": f"Missing fields: {', '.join(missing_fields)}"}, status=400)
+            user = CommonUser.objects.get(username=username)
+            if check_password(password, user.password):
+                request.session['user_id'] = user.user_id
+                request.session['username'] = user.username
+                messages.success(request, 'Login successful!')
+                logger.info(f"User {username} logged in successfully.")
+                return redirect('sender_send_message')
+            else:
+                messages.error(request, 'Invalid credentials.')
+                logger.warning(f"Login failed for user {username}: Invalid credentials.")
+        except CommonUser.DoesNotExist:
+            messages.error(request, 'Invalid credentials.')
+            logger.warning(f"Login failed for non-existent user {username}.")
 
-            # Validate sender and recipient
-            sender = User.objects.get(username=request.data.get("sender_username"))
-            recipient = User.objects.get(username=request.data.get("recipient_username"))
+    return render(request, 'sender/login.html')
 
-            # Encrypt the message
-            encrypted_message = cipher.encrypt(request.data.get("message_content").encode()).decode()
+# Logout View
+def logout_user(request):
+    """Handle user logout."""
+    request.session.flush()
+    messages.info(request, 'You have been logged out.')
+    logger.info("User logged out.")
+    return redirect('sender_homepage')
 
-            # Prepare and save the message
-            message_data = {
-                "sender": sender.user_id,
-                "recipient_username": recipient.username,
-                "priority": request.data.get("priority"),
-                "encrypted_message": encrypted_message,
-            }
-            serializer = SenderMessageSerializer(data=message_data)
-            if serializer.is_valid():
-                message = serializer.save()
+# Register View
+def register_user(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
-                # Forward the message to ReceiverApp
-                receiver_url = settings.RECEIVING_PROJECT_BASE_URL
-                headers = {
-                    "Authorization": f"Bearer {settings.RECEIVING_APP_TOKEN}",
-                    "Content-Type": "application/json",
-                }
-                response = requests.post(receiver_url, json={
-                    "sender_username": sender.username,
-                    "recipient_username": recipient.username,
-                    "priority": request.data.get("priority"),
+        if CommonUser.objects.filter(username=username).exists():
+            messages.error(request, 'Username already exists. Please choose another.')
+            logger.warning(f"Registration failed: Username {username} already exists.")
+        else:
+            CommonUser.objects.create(username=username, password=password)
+            messages.success(request, 'Registration successful! You can now log in.')
+            logger.info(f"User {username} registered successfully.")
+            return redirect('sender_login')
+
+    return render(request, 'sender/register.html')
+
+# Send Message View
+@custom_login_required
+def send_message(request):
+    """Handle sending encrypted messages."""
+    if request.method == 'POST':
+        recipient = request.POST.get('recipient')
+        message_content = request.POST.get('message_content')
+        priority = request.POST.get('priority')
+        attachment = request.FILES.get('attachment')
+
+        if not recipient or not message_content or not priority:
+            messages.error(request, 'All fields are required.')
+            return redirect('sender_send_message')
+
+        if attachment and attachment.size > 5 * 1024 * 1024:  # 5 MB limit
+            messages.error(request, 'Attachment size exceeds the 5 MB limit.')
+            return redirect('sender_send_message')
+
+        try:
+            sender_user = CommonUser.objects.get(user_id=request.session.get('user_id'))
+            recipient_user = CommonUser.objects.get(username=recipient)
+            encrypted_message = cipher.encrypt(message_content.encode()).decode()
+
+            with transaction.atomic():
+                # Save the message locally with timestamp
+                saved_message = SenderMessage.objects.create(
+                    sender=sender_user,
+                    recipient_username=recipient_user.username,
+                    priority=priority,
+                    encrypted_message=encrypted_message,
+                    attachment=attachment,
+                )
+
+                # Prepare the payload to send to ReceiverApp
+                data = {
+                    "sender_username": sender_user.username,
+                    "recipient_username": recipient_user.username,
+                    "priority": priority,
                     "decrypted_message": encrypted_message,
-                    "timestamp": message.timestamp.isoformat(),
-                }, headers=headers)
+                    "timestamp": saved_message.timestamp.isoformat(),  # Include the timestamp
+                }
+
+                # Handle file attachments
+                files = {'attachment': attachment} if attachment else None
+
+                # Forward to ReceiverApp
+                response = requests.post(receiver_url, json=data, files=files)
 
                 if response.status_code == 201:
-                    logger.info("Message forwarded successfully to ReceiverApp")
-                    return Response({
-                        "success": "Message sent successfully and forwarded to ReceiverApp",
-                        "message_id": message.id,
-                        "recipient": recipient.username,
-                    }, status=201)
+                    messages.success(request, 'Message sent successfully!')
                 else:
-                    logger.error("Failed to forward message to ReceiverApp: %s", response.text)
-                    return Response({
-                        "error": f"Failed to forward message to ReceiverApp: {response.text}"
-                    }, status=400)
+                    messages.error(request, f'Failed to send message to ReceiverApp: {response.text}')
+                    saved_message.delete()  # Cleanup if forwarding fails
 
-            logger.error("Message creation failed: %s", serializer.errors)
-            return Response(serializer.errors, status=400)
-
-        except User.DoesNotExist as e:
-            logger.error("User validation error: %s", e)
-            return Response({"error": f"User not found: {str(e)}"}, status=400)
+        except CommonUser.DoesNotExist:
+            messages.error(request, 'Recipient not found.')
         except requests.RequestException as e:
-            logger.error("Connection error with ReceiverApp: %s", e)
-            return Response({"error": f"Failed to connect to ReceiverApp: {str(e)}"}, status=500)
+            messages.error(request, f'Error connecting to ReceiverApp: {str(e)}')
         except Exception as e:
-            logger.critical("Unexpected error: %s", e, exc_info=True)
-            return Response({"error": f"Unexpected error: {str(e)}"}, status=500)
+            messages.error(request, f'Unexpected error: {str(e)}')
+
+    return render(request, 'sender/send_message.html')

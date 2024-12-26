@@ -7,7 +7,6 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['user_id', 'username', 'password']
 
-
 class ReceiverMessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ReceiverMessage

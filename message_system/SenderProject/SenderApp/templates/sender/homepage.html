@@ -1,0 +1,135 @@
+{% extends 'sender/base.html' %}
+<!-- Cutout -->
+{% block title %} Welcome to SenderApp {% endblock %}
+<!-- Cutout -->
+{% block content %}
+<div class="text-center py-5">
+  <h1 class="display-4 fw-bold text-purple">
+    <i class="fas fa-paper-plane"></i> Welcome to SenderApp!
+  </h1>
+  <p class="lead text-muted">
+    Your gateway to secure and seamless communication.
+  </p>
+  <p>Start your journey by logging in or creating an account today.</p>
+
+  <div class="mt-4">
+    <a href="{% url 'sender_login' %}" class="btn btn-purple btn-lg me-2">
+      <i class="fas fa-sign-in-alt"></i> Login
+    </a>
+    <a href="{% url 'sender_register' %}" class="btn btn-outline-purple btn-lg">
+      <i class="fas fa-user-plus"></i> Register
+    </a>
+  </div>
+</div>
+
+<div id="features" class="container my-5">
+  <div class="row gy-4">
+    <div class="col-md-4 text-center">
+      <div class="card shadow-sm border-purple h-100">
+        <div class="card-body">
+          <h5 class="card-title text-purple">
+            <i class="fas fa-exchange-alt"></i> Seamless Messaging
+          </h5>
+          <p class="card-text">
+            Effortlessly send and receive messages with our optimized platform.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 text-center">
+      <div class="card shadow-sm border-purple h-100">
+        <div class="card-body">
+          <h5 class="card-title text-purple">
+            <i class="fas fa-compass"></i> Intuitive Design
+          </h5>
+          <p class="card-text">
+            Navigate with ease using our user-friendly interface.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 text-center">
+      <div class="card shadow-sm border-purple h-100">
+        <div class="card-body">
+          <h5 class="card-title text-purple">
+            <i class="fas fa-tools"></i> Advanced Features
+          </h5>
+          <p class="card-text">
+            Leverage powerful tools to enhance your communication experience.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-purple-light py-5">
+  <div class="container text-center">
+    <h2 class="fw-bold text-purple">
+      <i class="fas fa-star"></i> Why Choose SenderApp?
+    </h2>
+    <p class="lead">
+      Embrace simplicity, security, and unparalleled functionality.
+    </p>
+    <ul class="list-unstyled">
+      <li class="mb-2">
+        <i class="fas fa-shield-alt"></i> Secure and reliable communication
+      </li>
+      <li class="mb-2">
+        <i class="fas fa-user-friends"></i> User-friendly and accessible
+      </li>
+      <li class="mb-2">
+        <i class="fas fa-chart-line"></i> Designed for modern needs
+      </li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  .text-purple {
+    color: #6a1b9a;
+  }
+
+  .btn-purple {
+    background-color: #6a1b9a;
+    color: white;
+  }
+
+  .btn-purple:hover {
+    background-color: #4a148c;
+  }
+
+  .btn-outline-purple {
+    border-color: #6a1b9a;
+    color: #6a1b9a;
+  }
+
+  .btn-outline-purple:hover {
+    background-color: #6a1b9a;
+    color: white;
+  }
+
+  .border-purple {
+    border-color: #6a1b9a;
+  }
+
+  .bg-purple-light {
+    background-color: #f3e5f5;
+  }
+
+  @media (max-width: 576px) {
+    .display-4 {
+      font-size: 2rem;
+    }
+
+    .btn-lg {
+      font-size: 1rem;
+      padding: 0.75rem 1.25rem;
+    }
+
+    .lead {
+      font-size: 1rem;
+    }
+  }
+</style>
+{% endblock %}
