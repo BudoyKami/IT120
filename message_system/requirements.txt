@@ -1,0 +1,12 @@
+# Django framework
+django==5.1.4
+djangorestframework==3.15.0
+
+# PostgreSQL adapter for Python
+psycopg==3.1.8
+
+# Encryption library
+cryptography==41.0.3
+
+# HTTP library
+requests==2.31.0
