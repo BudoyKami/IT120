@@ -1,4 +1,3 @@
-```markdown
 # Django Message System
 
 A secure and professionally designed message system built using Django, with separate apps for sending and receiving messages (`SenderApp` and `ReceiverApp`). The system supports encryption, decryption, user authentication, and message management.
@@ -26,6 +25,9 @@ A secure and professionally designed message system built using Django, with sep
 - PostgreSQL database
 - Django 5.1.4
 - `pip` package manager
+- **Visual C++ Build Tools**: Required for compiling dependencies such as `cryptography`. Download and install from [Visual C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
+  - During installation, ensure you select the **"Desktop development with C++"** workload.
+  - Also, include **"MSVC v142 - VS 2019 C++ x64/x86 build tools"** and **"Windows 10 SDK"**.
 
 ### Clone the Repository
 ```bash
