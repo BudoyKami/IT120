@@ -1,0 +1,15 @@
+{% extends 'sender/base.html' %}
+
+{% block title %}Welcome to SenderApp{% endblock %}
+
+{% block content %}
+<div class="text-center py-5">
+    <h1 class="display-4 fw-bold">Welcome to SenderApp!</h1>
+    <p class="lead">Your gateway to secure and seamless communication.</p>
+    <p>Start your journey by logging in or creating an account today.</p>
+    <div class="mt-4">
+        <a href="{% url 'sender_login' %}" class="btn btn-primary btn-lg me-2">Login</a>
+        <a href="{% url 'sender_register' %}" class="btn btn-outline-light btn-lg">Register</a>
+    </div>
+</div>
+{% endblock %}

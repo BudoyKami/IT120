@@ -1,0 +1,14 @@
+{% extends 'receiver/base.html' %}
+
+{% block title %}Welcome to ReceiverApp{% endblock %}
+
+{% block content %}
+<div class="text-center py-5">
+    <h1 class="display-4 fw-bold">Welcome to ReceiverApp!</h1>
+    <p class="lead">Your portal to securely view and manage messages.</p>
+    <p>Access your messages by logging in now.</p>
+    <div class="mt-4">
+        <a href="{% url 'receiver_login' %}" class="btn btn-primary btn-lg me-2">Login</a>
+    </div>
+</div>
+{% endblock %}

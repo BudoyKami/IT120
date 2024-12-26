@@ -1,0 +1,7 @@
+encryption key generation
+
+python manage.py shell
+
+from cryptography.fernet import Fernet
+key = Fernet.generate_key()
+print(key.decode())
