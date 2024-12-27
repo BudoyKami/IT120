@@ -152,8 +152,7 @@ django-message-system/
 - Attachments larger than 5 MB are not supported.
 
 ---
-## Contributing
-Contributions are welcome! Please submit a pull request or open an issue.
+## Contributors
 
 ---
 ## License
