@@ -153,6 +153,10 @@ django-message-system/
 
 ---
 ## Contributors
+- Caeilanlightwood77
+- kyleneangela
+- Dextarfinity
+- DjYoon04
 
 ---
 ## License
