@@ -159,8 +159,4 @@ django-message-system/
 - DjYoon04
 
 ---
-## License
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
----
 **Happy messaging!** 🚀
